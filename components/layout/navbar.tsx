@@ -12,8 +12,8 @@ import { Container } from "./container";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "AI Products", href: "/ai-products" },
   { name: "Products", href: "/products" },
+  { name: "Works", href: "/works" },
   { name: "Services", href: "/services" },
   { name: "Clients", href: "/clients" },
   { name: "Contact", href: "/contact" },

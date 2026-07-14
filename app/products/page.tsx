@@ -1,11 +1,15 @@
-import { ProductsHero } from "@/components/sections/products/hero";
-import { ProductList } from "@/components/sections/products/product-list";
+import { AIProductsHero } from "@/components/sections/products/hero";
+import { DeepLensBlock } from "@/components/sections/products/deeplens-block";
+import { DeployMindBlock } from "@/components/sections/products/deploymind-block";
+import { OtherProductsBlock } from "@/components/sections/products/other-products-block";
 
 export default function ProductsPage() {
   return (
     <>
-      <ProductsHero />
-      <ProductList />
+      <AIProductsHero />
+      <DeepLensBlock />
+      <DeployMindBlock />
+      <OtherProductsBlock />
     </>
   );
 }
