@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
-import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
+import { TiltCard } from "@/components/reactbits/tilt-card";
 import { PenTool, Smartphone, Server, Sparkles, Building2 } from "lucide-react";
 
 const services = [
@@ -48,22 +48,21 @@ export function ServicesPreview() {
             </Button>
           </FadeUp>
           
-          <StaggerContainer className="lg:w-2/3 flex flex-col gap-6 w-full">
+          <div className="lg:w-2/3 flex flex-col gap-6 w-full">
             {services.map((service, i) => (
-              <StaggerItem 
-                key={i} 
-                className="bg-white border border-border rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start hover:border-mint hover:shadow-[var(--shadow-soft)] hover:-translate-y-1 transition-all"
-              >
-                <div className="w-14 h-14 rounded-full bg-mint-soft flex items-center justify-center text-emerald shrink-0">
-                  <service.icon className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-heading font-semibold text-ink mb-2">{service.title}</h3>
-                  <p className="text-body text-[15px] sm:text-base">{service.description}</p>
-                </div>
-              </StaggerItem>
+              <FadeUp key={i} delay={i * 0.12}>
+                <TiltCard className="bg-white border border-border rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start hover:border-mint hover:shadow-[var(--shadow-soft)] transition-all">
+                  <div className="w-14 h-14 rounded-full bg-mint-soft flex items-center justify-center text-emerald shrink-0">
+                    <service.icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-heading font-semibold text-ink mb-2">{service.title}</h3>
+                    <p className="text-body text-[15px] sm:text-base">{service.description}</p>
+                  </div>
+                </TiltCard>
+              </FadeUp>
             ))}
-          </StaggerContainer>
+          </div>
         </div>
       </Container>
     </Section>

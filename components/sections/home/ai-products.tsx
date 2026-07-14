@@ -10,7 +10,7 @@ export function AIProducts() {
     <Section>
       <Container>
         <FadeUp className="text-center mb-16 md:mb-24">
-          <h2 className="text-4xl md:text-[44px] font-heading font-semibold text-ink mb-6">Our AI Products</h2>
+          <h2 className="text-4xl md:text-[44px] font-heading font-semibold text-ink mb-6">Our Products</h2>
           <p className="text-lg md:text-[20px] text-body max-w-2xl mx-auto">
             Two engineering-first AI platforms, built in-house — not integrations, our own IP.
           </p>
