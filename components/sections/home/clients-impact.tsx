@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
+import { LogoLoop, type LogoItem } from "@/components/reactbits/logo-loop";
 
 const clients = [
   {
@@ -23,6 +24,15 @@ const clients = [
   },
 ];
 
+const clientLogos: LogoItem[] = clients.map(client => ({
+  node: (
+    <span className="text-xl md:text-2xl font-heading font-semibold text-muted whitespace-nowrap">
+      {client.name.replace(/\s*\(.*\)\s*$/, "")}
+    </span>
+  ),
+  title: client.name,
+}));
+
 export function ClientsImpact() {
   return (
     <Section className="bg-surface-alt border-y border-border">
@@ -32,7 +42,23 @@ export function ClientsImpact() {
             Trusted By Governments, Enterprises, and Global Partners
           </h2>
         </FadeUp>
-        
+
+        <FadeUp delay={0.1} className="mb-16 md:mb-20">
+          <div className="relative h-16 md:h-20">
+            <LogoLoop
+              logos={clientLogos}
+              speed={60}
+              direction="left"
+              logoHeight={32}
+              gap={64}
+              fadeOut
+              fadeOutColor="#f6faf8"
+              scaleOnHover
+              ariaLabel="Clients we work with"
+            />
+          </div>
+        </FadeUp>
+
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 md:mb-20">
           {clients.map((client, i) => (
             <StaggerItem 

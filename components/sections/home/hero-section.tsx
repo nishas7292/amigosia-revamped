@@ -1,43 +1,73 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { TextReveal } from "@/components/motion/text-reveal";
-import { FadeUp } from "@/components/motion/fade-up";
 import { SplineScene } from "@/components/spline/spline-scene";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  /** Optional background video URL (mp4). Falls back to the mint radial glow when omitted — swap in a video by passing this prop from app/page.tsx. */
+  backgroundVideo?: string;
+}
+
+export function HeroSection({ backgroundVideo }: HeroSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.88]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -60]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Mint radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,var(--mint)_0%,transparent_60%)] opacity-30 -z-10 blur-3xl pointer-events-none" />
-      
-      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="flex flex-col z-10">
-          <TextReveal 
-            text="Building Scalable Digital Products for Startups, Enterprises, and Global Partners" 
-            className="text-4xl md:text-5xl lg:text-[64px] font-heading font-semibold leading-[1.1] tracking-tight text-ink mb-6" 
+    <section ref={sectionRef} className={prefersReducedMotion ? "relative" : "relative h-[160vh]"}>
+      <div
+        className={
+          prefersReducedMotion
+            ? "relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20"
+            : "sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden pt-20"
+        }
+      >
+        {backgroundVideo ? (
+          <>
+            <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover -z-20">
+              <source src={backgroundVideo} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-white/70 -z-10" />
+          </>
+        ) : (
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,var(--mint)_0%,transparent_60%)] opacity-30 -z-10 blur-3xl pointer-events-none" />
+        )}
+
+        <motion.div
+          style={{
+            opacity: prefersReducedMotion ? 1 : opacity,
+            scale: prefersReducedMotion ? 1 : scale,
+            y: prefersReducedMotion ? 0 : y,
+          }}
+          className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto"
+        >
+          <motion.div
+            className="w-40 h-40 md:w-56 md:h-56 mb-8"
+            animate={prefersReducedMotion ? undefined : { y: [0, -12, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <SplineScene
+              label="SPLINE_HERO_LOGO"
+              poster="/spline-poster-hero-logo.png"
+              scene=""
+              className="!min-h-0 h-full w-full rounded-full"
+            />
+          </motion.div>
+
+          <TextReveal
+            text="Building Scalable Digital Products for Startups, Enterprises, and Global Partners"
+            className="justify-center text-4xl md:text-5xl lg:text-[64px] font-heading font-semibold leading-[1.1] tracking-tight text-ink"
           />
-          <FadeUp delay={0.4}>
-            <p className="text-lg md:text-[20px] text-body mb-8 max-w-[540px]">
-              From government-scale platforms to hyperlocal marketplaces to our own AI-native developer tools — Amigosia designs, builds, and scales digital products that move communities and businesses into the digital economy.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="bg-emerald text-white hover:bg-emerald-dark rounded-full px-8 shadow-sm hover:shadow-md transition-all text-base h-12">
-                <Link href="/ai-products">Explore Our AI Products &rarr;</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-emerald text-emerald hover:bg-emerald/5 rounded-full px-8 h-12 text-base">
-                <Link href="/contact">Talk to Us</Link>
-              </Button>
-            </div>
-          </FadeUp>
-        </div>
-        <FadeUp delay={0.2} className="relative h-[400px] lg:h-[600px] w-full z-0">
-          <SplineScene 
-            label="SPLINE_HERO (Network Graph)" 
-            poster="/spline-poster-hero.png" // Placeholder poster path
-            scene="" // Pending Spline URL
-            className="bg-transparent"
-          />
-        </FadeUp>
+        </motion.div>
       </div>
     </section>
   );
