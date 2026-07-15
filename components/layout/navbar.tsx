@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -47,8 +48,16 @@ export function Navbar() {
       )}
     >
       <Container className="flex items-center justify-between">
-        <Link href="/" className="text-xl font-heading font-semibold tracking-tight text-ink">
-          Amigosia
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <Image
+            src="/amigosia-logo.png"
+            alt="Amigosia"
+            width={1131}
+            height={1600}
+            priority
+            className="h-11 md:h-12 w-auto"
+          />
+          <span className="text-xl font-heading font-semibold tracking-tight text-ink">Amigosia</span>
         </Link>
         
         {/* Desktop Nav */}
