@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { ServicesHero } from "@/components/sections/services/services-hero";
 import { ServiceSlider } from "@/components/sections/services/service-slider";
-import { ProcessTimeline } from "@/components/sections/services/process-timeline";
 import { WhyChooseUs } from "@/components/sections/services/why-choose-us";
 import { ServicesCTA } from "@/components/sections/services/services-cta";
 
@@ -15,7 +14,6 @@ export default function ServicesPage() {
     <main className="bg-surface">
       <ServicesHero />
       <ServiceSlider />
-      <ProcessTimeline />
       <WhyChooseUs />
       <ServicesCTA />
     </main>
