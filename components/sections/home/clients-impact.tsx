@@ -37,13 +37,13 @@ export function ClientsImpact() {
   return (
     <Section className="bg-surface-alt border-y border-border">
       <Container>
-        <FadeUp className="text-center mb-16 md:mb-20">
+        <FadeUp className="text-center mb-10 md:mb-20">
           <h2 className="text-3xl md:text-[44px] font-heading font-semibold text-ink mb-4 max-w-3xl mx-auto leading-tight">
             Trusted By Governments, Enterprises, and Global Partners
           </h2>
         </FadeUp>
 
-        <FadeUp delay={0.1} className="mb-16 md:mb-20">
+        <FadeUp delay={0.1} className="mb-10 md:mb-20">
           <div className="relative h-16 md:h-20">
             <LogoLoop
               logos={clientLogos}
@@ -59,7 +59,7 @@ export function ClientsImpact() {
           </div>
         </FadeUp>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 md:mb-20">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 md:mb-20">
           {clients.map((client, i) => (
             <StaggerItem 
               key={i} 
