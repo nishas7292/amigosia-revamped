@@ -1,7 +1,7 @@
 import { Container, Section } from "@/components/layout/container";
 import { FadeUp } from "@/components/motion/fade-up";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
-import { MapPin, Users, UtensilsCrossed, QrCode } from "lucide-react";
+import { MapPin, Users, UtensilsCrossed, QrCode, Briefcase } from "lucide-react";
 
 const otherProducts = [
   {
@@ -23,6 +23,11 @@ const otherProducts = [
     title: "DigiCoupon",
     description: "A secure, QR-based digital coupon platform for high-volume events.",
     icon: QrCode,
+  },
+  {
+    title: "HR Roll App",
+    description: "A comprehensive HR management application to streamline your team operations.",
+    icon: Briefcase,
   },
 ];
 
