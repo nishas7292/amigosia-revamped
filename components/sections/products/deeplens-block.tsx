@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useScroll, useTransform, motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/motion/fade-up";
@@ -44,16 +45,14 @@ export function DeepLensBlock() {
           <div ref={containerRef} className="relative flex flex-col md:flex-row gap-12 max-w-5xl mx-auto">
             {/* Sticky Graphic Column */}
             <div className="md:w-1/2 flex items-start justify-center relative h-[60vh] md:h-auto md:min-h-screen">
-              <div className="sticky top-[25vh] w-full max-w-[400px] aspect-square bg-mint-soft rounded-3xl flex items-center justify-center border border-mint overflow-hidden relative">
-                <motion.div style={{ opacity: step1Opacity }} className="absolute inset-0">
-                  <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80" alt="Map" className="w-full h-full object-cover" />
-                </motion.div>
-                <motion.div style={{ opacity: step2Opacity }} className="absolute inset-0">
-                  <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80" alt="Detect" className="w-full h-full object-cover" />
-                </motion.div>
-                <motion.div style={{ opacity: step3Opacity }} className="absolute inset-0">
-                  <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80" alt="Analyze" className="w-full h-full object-cover" />
-                </motion.div>
+              <div className="sticky top-[25vh] w-full max-w-[400px] aspect-square bg-mint-soft rounded-3xl flex items-center justify-center border border-mint/50 overflow-hidden relative shadow-soft hover:shadow-hover transition-shadow duration-500 group">
+                <Image
+                  src="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
+                  alt="DeepLens Analysis"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0" />
               </div>
             </div>
             

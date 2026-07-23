@@ -67,18 +67,27 @@ export function AIProducts() {
                 <Link href="/products">Explore DeepLens &rarr;</Link>
               </Button>
             </FadeUp>
-            <FadeUp delay={0.2} className="relative h-[400px] lg:h-[500px] w-full order-1 lg:order-2">
-              <SplineScene
-                label="SPLINE_DEEPLENS_TEASER"
-                poster="/spline-poster-deeplens.png"
+            <FadeUp delay={0.2} className="relative h-[400px] lg:h-[500px] w-full order-1 lg:order-2 group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
+              <Image
+                src="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
+                alt="DeepLens Analysis"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0" />
             </FadeUp>
           </div>
 
           {/* DeployMind */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <FadeUp delay={0.1} className="relative h-[400px] lg:h-[500px] w-full">
-              <Image src="/products/deploymind-image.jpg" alt="deploymind-image" width={500} height={500} />
+            <FadeUp delay={0.1} className="relative h-[400px] lg:h-[500px] w-full group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
+              <Image 
+                src="/products/deploymind-image.jpg" 
+                alt="DeployMind" 
+                fill 
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0" />
             </FadeUp>
             <FadeUp delay={0.2}>
               <h3 className="text-3xl md:text-[32px] font-heading font-semibold text-ink mb-2">DeployMind</h3>

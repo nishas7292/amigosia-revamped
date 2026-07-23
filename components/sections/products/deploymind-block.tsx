@@ -46,8 +46,14 @@ export function DeployMindBlock() {
           <div ref={containerRef} className="relative flex flex-col md:flex-row gap-12 max-w-5xl mx-auto">
             {/* Sticky Graphic Column */}
             <div className="md:w-1/2 flex items-start justify-center relative h-[60vh] md:h-auto md:min-h-screen">
-              <div className="sticky top-[25vh] w-full max-w-[400px] aspect-square bg-mint-soft rounded-3xl flex items-center justify-center border border-mint overflow-hidden relative">
-                <Image src="/products/deploymind-image.jpg" alt="deploymind-image" width={500} height={500} />
+              <div className="sticky top-[25vh] w-full max-w-[400px] aspect-square bg-mint-soft rounded-3xl flex items-center justify-center border border-mint/50 overflow-hidden relative shadow-soft hover:shadow-hover transition-shadow duration-500 group">
+                <Image 
+                  src="/products/deploymind-image.jpg" 
+                  alt="DeployMind" 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                />
+                <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0" />
               </div>
             </div>
 
