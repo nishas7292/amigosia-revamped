@@ -24,14 +24,32 @@ const clients = [
   },
 ];
 
-const clientLogos: LogoItem[] = clients.map(client => ({
-  node: (
-    <span className="text-xl md:text-2xl font-heading font-semibold text-muted whitespace-nowrap">
-      {client.name.replace(/\s*\(.*\)\s*$/, "")}
-    </span>
-  ),
-  title: client.name,
-}));
+const clientLogos: LogoItem[] = [
+  {
+    src: "/partner_logos/logo-kudumbashree.png",
+    alt: "Kudumbashree",
+    title: "Kudumbashree",
+    height: 44,
+  },
+  {
+    src: "/partner_logos/logo-kldb.png",
+    alt: "Kerala Livestock Development Board",
+    title: "Kerala Livestock Development Board",
+    height: 40,
+  },
+  {
+    src: "/partner_logos/logo-logizen.png",
+    alt: "Logizen LLC",
+    title: "Logizen LLC",
+    height: 44,
+  },
+  {
+    src: "/partner_logos/logo-kbnholding.png",
+    alt: "KBN Holdings",
+    title: "KBN Holdings",
+    height: 44,
+  },
+];
 
 export function ClientsImpact() {
   return (

@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 
 const images = [
-  "/careers/team-1.svg",
-  "/careers/team-2.svg",
-  "/careers/team-3.svg",
-  "/careers/team-4.svg",
+  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
 ];
 
 export function AnimatedTeamGallery() {
@@ -20,7 +22,7 @@ export function AnimatedTeamGallery() {
 
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(timer);
   }, [isHovered]);
@@ -63,7 +65,7 @@ export function AnimatedTeamGallery() {
 
             return (
               <motion.div
-                key={src}
+                key={`${src}-${index}`}
                 className="absolute w-full h-full rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(14,122,95,0.12)] border border-white/40 bg-white"
                 initial={false}
                 animate={{
@@ -86,6 +88,7 @@ export function AnimatedTeamGallery() {
                   src={src}
                   alt={`Team member ${index + 1}`}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority={index === 0}
                 />

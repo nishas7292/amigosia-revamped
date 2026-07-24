@@ -42,6 +42,8 @@ export function SplineScene({ scene, poster, label, className }: SplineSceneProp
             src={poster}
             alt={label || "3D Scene"}
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
             className="object-cover"
           />
         ) : (

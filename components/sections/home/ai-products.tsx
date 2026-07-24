@@ -5,6 +5,7 @@ import { Container, Section } from "@/components/layout/container";
 import { SplineScene } from "@/components/spline/spline-scene";
 import { CheckCircle2, Store, MapPin, Users, UtensilsCrossed, QrCode } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
+import Image from "next/image";
 
 const otherAiProducts = [
   {
@@ -66,21 +67,25 @@ export function AIProducts() {
                 <Link href="/products">Explore DeepLens &rarr;</Link>
               </Button>
             </FadeUp>
-            <FadeUp delay={0.2} className="relative h-[400px] lg:h-[500px] w-full order-1 lg:order-2">
-              <SplineScene 
-                label="SPLINE_DEEPLENS_TEASER" 
-                poster="/spline-poster-deeplens.png"
+            <FadeUp delay={0.2} className="relative h-[400px] lg:h-[500px] w-full order-1 lg:order-2 group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
+              <SplineScene
+                label="SPLINE_DEEPLENS_TEASER"
+                poster="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
+                className="w-full h-full border-0 rounded-none bg-transparent transition-transform duration-700 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
             </FadeUp>
           </div>
 
           {/* DeployMind */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <FadeUp delay={0.1} className="relative h-[400px] lg:h-[500px] w-full">
-              <SplineScene 
-                label="SPLINE_DEPLOYMIND_TEASER" 
-                poster="/spline-poster-deploymind.png"
+            <FadeUp delay={0.1} className="relative h-[400px] lg:h-[500px] w-full group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
+              <SplineScene
+                label="SPLINE_DEPLOYMIND_TEASER"
+                poster="/products/dploymind.png"
+                className="w-full h-full border-0 rounded-none bg-transparent transition-transform duration-700 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
             </FadeUp>
             <FadeUp delay={0.2}>
               <h3 className="text-3xl md:text-[32px] font-heading font-semibold text-ink mb-2">DeployMind</h3>
@@ -111,8 +116,8 @@ export function AIProducts() {
         {/* Other AI Products Bento */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 md:mb-24 auto-rows-fr">
           {otherAiProducts.map((product, i) => (
-            <StaggerItem 
-              key={i} 
+            <StaggerItem
+              key={i}
               className="bg-white border border-border/50 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-[var(--shadow-hover)] hover:border-mint transition-all flex flex-col hover:-translate-y-1"
             >
               <div className="w-12 h-12 rounded-xl bg-mint-soft flex items-center justify-center text-emerald mb-6 shrink-0">
@@ -128,7 +133,7 @@ export function AIProducts() {
         <FadeUp className="text-center mb-10">
           <h2 className="text-3xl md:text-[36px] font-heading font-semibold text-ink mb-4">Our Flagship Community Platform</h2>
         </FadeUp>
-        
+
         <FadeUp className="mb-16 md:mb-24">
           <div className="bg-white border border-border/50 rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-all">
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">

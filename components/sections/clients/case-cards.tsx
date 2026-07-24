@@ -18,6 +18,10 @@ const clients = [
     name: "KBN Holdings (Qatar)",
     relationship: "Strategic software development partnership, established October 2025",
   },
+  {
+    name: "DigiCoupon",
+    relationship: "Providing a secure, QR-based digital coupon platform for high-volume events and local commerce.",
+  },
 ];
 
 export function CaseCards() {

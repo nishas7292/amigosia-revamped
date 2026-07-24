@@ -63,7 +63,7 @@ export function Navbar() {
         )}
       >
         <Container className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 -mt-1">
             <Image
               src="/amigosia-logo.png"
               alt="Amigosia"
