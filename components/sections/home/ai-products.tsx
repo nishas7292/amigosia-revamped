@@ -82,7 +82,7 @@ export function AIProducts() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <FadeUp delay={0.1} className="relative h-[400px] lg:h-[500px] w-full group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
               <Image 
-                src="/products/deploymind-image.jpg" 
+                src="/products/dploymind.png" 
                 alt="DeployMind" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
