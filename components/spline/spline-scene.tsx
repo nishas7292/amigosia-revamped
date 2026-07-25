@@ -15,9 +15,10 @@ interface SplineSceneProps {
   poster?: string;
   label?: string;
   className?: string;
+  posterClassName?: string;
 }
 
-export function SplineScene({ scene, poster, label, className }: SplineSceneProps) {
+export function SplineScene({ scene, poster, label, className, posterClassName }: SplineSceneProps) {
   const prefersReducedMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
@@ -44,7 +45,7 @@ export function SplineScene({ scene, poster, label, className }: SplineSceneProp
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             priority
-            className="object-cover"
+            className={cn("object-cover", posterClassName)}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-emerald font-medium">

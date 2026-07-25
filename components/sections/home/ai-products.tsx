@@ -82,8 +82,9 @@ export function AIProducts() {
             <FadeUp delay={0.1} className="relative h-[400px] lg:h-[500px] w-full group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
               <SplineScene
                 label="SPLINE_DEPLOYMIND_TEASER"
-                poster="/products/dploymind.png"
+                poster="/products/deploymind.jpg"
                 className="w-full h-full border-0 rounded-none bg-transparent transition-transform duration-700 group-hover:scale-105"
+                posterClassName="!object-contain mix-blend-multiply"
               />
               <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
             </FadeUp>
