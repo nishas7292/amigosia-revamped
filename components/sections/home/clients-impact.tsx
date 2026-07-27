@@ -4,23 +4,32 @@ import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
 import { LogoLoop, type LogoItem } from "@/components/reactbits/logo-loop";
+import Image from "next/image";
+import kudumbashreeLogo from "@/public/partner_logos/logo-kudumbashree.png";
+import livestockLogo from "@/public/logos/live stock .png";
+import logizenLogo from "@/public/logos/logizen_logo.png";
+import kbnholdingsLogo from "@/public/logos/kbn.png";
 
 const clients = [
   {
     name: "Kudumbashree (Govt. of Kerala)",
     relationship: "Technology partner since 2024, supporting digital expansion of one of India's largest community-led economic missions",
+    logo: kudumbashreeLogo,
   },
   {
     name: "Kerala Livestock Development Board",
     relationship: "Digitizing livestock and pet commerce, connecting farmers to structured online marketplaces",
+    logo: livestockLogo,
   },
   {
     name: "Logizen LLC (USA)",
     relationship: "Engineering partner for next-generation logistics platforms",
+    logo: logizenLogo,
   },
   {
     name: "KBN Holdings (Qatar)",
     relationship: "Strategic software development partnership, established October 2025",
+    logo: kbnholdingsLogo,
   },
 ];
 
@@ -62,15 +71,15 @@ export function ClientsImpact() {
         </FadeUp>
 
         <FadeUp delay={0.1} className="mb-10 md:mb-20">
-          <div className="relative h-16 md:h-20">
+          <div className="relative h-24 md:h-32 bg-ink rounded-3xl flex items-center shadow-soft border border-mint/10 overflow-hidden">
             <LogoLoop
               logos={clientLogos}
               speed={60}
               direction="left"
-              logoHeight={32}
+              logoHeight={48}
               gap={64}
               fadeOut
-              fadeOutColor="#f6faf8"
+              fadeOutColor="#0b1512"
               scaleOnHover
               ariaLabel="Clients we work with"
             />
@@ -81,11 +90,18 @@ export function ClientsImpact() {
           {clients.map((client, i) => (
             <StaggerItem 
               key={i} 
-              className="bg-white rounded-2xl p-8 sm:p-10 shadow-sm hover:shadow-[var(--shadow-hover)] transition-all flex flex-col justify-between"
+              className="bg-white rounded-2xl p-8 sm:p-10 shadow-sm hover:shadow-[var(--shadow-hover)] transition-all flex flex-col justify-between hover:-translate-y-1"
             >
-              <p className="text-body text-[17px] mb-8 leading-relaxed">
-                "{client.relationship}"
-              </p>
+              <div>
+                {client.logo && (
+                  <div className="h-12 mb-6 flex items-center">
+                    <Image src={client.logo} alt={client.name} className="max-h-full w-auto object-contain" />
+                  </div>
+                )}
+                <p className="text-body text-[17px] mb-8 leading-relaxed">
+                  "{client.relationship}"
+                </p>
+              </div>
               <h3 className="text-xl font-heading font-semibold text-ink border-t border-border pt-6">
                 {client.name}
               </h3>

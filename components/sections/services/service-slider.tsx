@@ -37,6 +37,11 @@ const services = [
     description: "End-to-end product roadmapping, MVP scoping, and growth planning.",
     image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1000&auto=format&fit=crop",
   },
+  {
+    title: "Internship and Training",
+    description: "Comprehensive training programs and hands-on internships to build the next generation of tech talent.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop",
+  },
 ];
 
 export function ServiceSlider() {
