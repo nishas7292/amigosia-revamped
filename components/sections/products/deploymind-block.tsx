@@ -8,6 +8,7 @@ import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { CheckCircle2, GitMerge, Settings, Cloud } from "lucide-react";
 import { CountUp } from "@/components/motion/count-up";
+import Image from "next/image";
 
 export function DeployMindBlock() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -45,19 +46,17 @@ export function DeployMindBlock() {
           <div ref={containerRef} className="relative flex flex-col md:flex-row gap-12 max-w-5xl mx-auto">
             {/* Sticky Graphic Column */}
             <div className="md:w-1/2 flex items-start justify-center relative h-[60vh] md:h-auto md:min-h-screen">
-              <div className="sticky top-[25vh] w-full max-w-[400px] aspect-square bg-mint-soft rounded-3xl flex items-center justify-center border border-mint overflow-hidden">
-                <motion.div style={{ opacity: step1Opacity }} className="absolute">
-                  <GitMerge className="w-24 h-24 md:w-32 md:h-32 text-emerald" />
-                </motion.div>
-                <motion.div style={{ opacity: step2Opacity }} className="absolute">
-                  <Settings className="w-24 h-24 md:w-32 md:h-32 text-emerald" />
-                </motion.div>
-                <motion.div style={{ opacity: step3Opacity }} className="absolute">
-                  <Cloud className="w-24 h-24 md:w-32 md:h-32 text-emerald" />
-                </motion.div>
+              <div className="sticky top-[25vh] w-full max-w-[400px] aspect-square bg-mint-soft rounded-3xl flex items-center justify-center border border-mint/50 overflow-hidden relative shadow-soft hover:shadow-hover transition-shadow duration-500 group">
+                <Image 
+                  src="/products/deploymind-image.jpg" 
+                  alt="DeployMind" 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                />
+                <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0" />
               </div>
             </div>
-            
+
             {/* Steps Text Column */}
             <div className="md:w-1/2 flex flex-col py-[10vh] md:py-[20vh]">
               <motion.div style={{ opacity: step1Opacity }} className="min-h-[50vh] flex flex-col justify-center">

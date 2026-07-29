@@ -99,11 +99,11 @@ export function ContactLayout() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-ink">Name <span className="text-destructive">*</span></label>
-                      <Input id="name" name="name" required placeholder="John Doe" className="h-12 rounded-xl focus-visible:ring-emerald" />
+                      <Input id="name" name="name" required placeholder="Enter your name" className="h-12 rounded-xl focus-visible:ring-emerald" />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium text-ink">Email <span className="text-destructive">*</span></label>
-                      <Input id="email" name="email" type="email" required placeholder="john@example.com" className="h-12 rounded-xl focus-visible:ring-emerald" />
+                      <Input id="email" name="email" type="email" required placeholder="Enter your email" className="h-12 rounded-xl focus-visible:ring-emerald" />
                     </div>
                   </div>
                   

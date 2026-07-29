@@ -2,21 +2,32 @@ import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { LogoLoop, type LogoItem } from "@/components/reactbits/logo-loop";
 
-const partners = [
-  "Kudumbashree",
-  "Kerala Livestock Development Board",
-  "Logizen LLC",
-  "KBN Holdings"
+const clientLogos: LogoItem[] = [
+  {
+    src: "/partner_logos/logo-kudumbashree.png",
+    alt: "Kudumbashree",
+    title: "Kudumbashree",
+    height: 44,
+  },
+  {
+    src: "/partner_logos/logo-logizen.png",
+    alt: "Logizen LLC",
+    title: "Logizen LLC",
+    height: 44,
+  },
+  {
+    src: "/partner_logos/logo-kbnholding.png",
+    alt: "KBN Holdings",
+    title: "KBN Holdings",
+    height: 44,
+  },
+  {
+    src: "/partner_logos/logo-kldb.png",
+    alt: "Kerala Livestock Development Board",
+    title: "Kerala Livestock Development Board",
+    height: 40,
+  },
 ];
-
-const clientLogos: LogoItem[] = partners.map(partner => ({
-  node: (
-    <span className="text-xl md:text-2xl font-heading font-semibold text-muted hover:text-emerald transition-colors whitespace-nowrap px-4 cursor-pointer">
-      {partner}
-    </span>
-  ),
-  title: partner,
-}));
 
 export function TrustStrip() {
   return (

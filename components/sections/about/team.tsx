@@ -3,7 +3,6 @@ import { Container, Section } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { AnimatedTeamGallery } from "./animated-team-gallery";
 import Link from "next/link";
-import { motion } from "motion/react";
 
 export function TeamGrid() {
   return (
@@ -25,7 +24,7 @@ export function TeamGrid() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald"></span>
                 </span>
-                We're Hiring
+                We&apos;re Hiring
               </div>
             </FadeUp>
             

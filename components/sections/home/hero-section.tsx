@@ -57,7 +57,7 @@ export function HeroSection({ backgroundVideo }: HeroSectionProps) {
           >
             <SplineScene
               label="SPLINE_HERO_LOGO"
-              poster="/spline-poster-hero-logo.png"
+              poster="/amigosia-logo.png"
               scene=""
               className="!min-h-0 h-full w-full rounded-full"
             />

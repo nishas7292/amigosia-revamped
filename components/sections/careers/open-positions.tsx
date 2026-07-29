@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Briefcase } from "lucide-react";
 import Link from "next/link";
+import { ApplyDialog } from "./apply-dialog";
 
 const departments = [
   {
@@ -106,7 +107,7 @@ export function CareersOpenPositions() {
           <Accordion defaultValue={[]} className="w-full">
             {departments.map((dept, idx) => (
               <AccordionItem key={dept.name} value={`item-${idx}`} className="border-b border-border py-2">
-                <AccordionTrigger className="text-2xl md:text-3xl font-heading font-semibold text-ink hover:no-underline group hover:text-emerald transition-colors py-6 data-[state=open]:text-emerald">
+                <AccordionTrigger className="cursor-pointer text-2xl md:text-3xl font-heading font-semibold text-ink hover:no-underline group hover:text-emerald transition-colors py-6 data-[state=open]:text-emerald **:data-[slot=accordion-trigger-icon]:size-6 md:**:data-[slot=accordion-trigger-icon]:size-8 **:data-[slot=accordion-trigger-icon]:text-emerald">
                   <div className="flex items-center gap-4">
                     <span>{dept.name}</span>
                     <span className="text-muted font-normal text-xl bg-surface-alt px-3 py-1 rounded-full group-hover:bg-mint-soft group-hover:text-emerald transition-colors">{dept.openings.length}</span>
@@ -127,9 +128,7 @@ export function CareersOpenPositions() {
                             <p className="text-body leading-relaxed max-w-2xl">{job.description}</p>
                           </div>
                           <div className="shrink-0 mt-2 md:mt-0">
-                            <Button asChild className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 shadow-sm hover:shadow transition-all hover:-translate-y-0.5">
-                              <Link href="#apply">Apply Now</Link>
-                            </Button>
+                            <ApplyDialog jobTitle={job.title} />
                           </div>
                         </div>
                       </div>

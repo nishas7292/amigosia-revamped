@@ -20,7 +20,7 @@ export default function RootLayout({
       lang="en"
       className={`${fontSans.variable} ${fontHeading.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="min-h-full flex flex-col font-sans overflow-x-hidden">
         <LenisProvider>
           <Navbar />
           <main className="flex-1 flex flex-col min-h-screen pt-20">

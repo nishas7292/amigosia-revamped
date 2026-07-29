@@ -5,27 +5,36 @@ import { Container, Section } from "@/components/layout/container";
 import { SplineScene } from "@/components/spline/spline-scene";
 import { CheckCircle2, Store, MapPin, Users, UtensilsCrossed, QrCode } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
+import near2meIcon from "@/public/logos/near_2_me_final.png";
+import nearbyestateIcon from "@/public/logos/near_by_estate_final.png";
+import pocketmartIcon from "@/public/logos/pocket mart.webp";
+import digicouponLogo from "@/public/logos/digicoupon.png";
+import cloudKitchenIcon from "@/public/logos/cloud kitchen platform.png";
+import Image from "next/image";
 
 const otherAiProducts = [
   {
     title: "NearByEstate",
     description: "A geolocation-driven real estate marketplace that simplifies local property discovery.",
-    icon: MapPin,
+    image: nearbyestateIcon
   },
   {
     title: "Near2Me",
     description: "A hyperlocal marketplace connecting producers directly with nearby consumers.",
-    icon: Users,
+    icon: near2meIcon,
+    image: near2meIcon
   },
   {
     title: "Cloud Kitchen Platform",
     description: "An end-to-end digital system to manage ordering, operations, and delivery in one place.",
     icon: UtensilsCrossed,
+    image: cloudKitchenIcon,
   },
   {
     title: "DigiCoupon",
     description: "A secure, QR-based digital coupon platform for high-volume events.",
     icon: QrCode,
+    image: digicouponLogo,
   },
 ];
 
@@ -66,21 +75,27 @@ export function AIProducts() {
                 <Link href="/products">Explore DeepLens &rarr;</Link>
               </Button>
             </FadeUp>
-            <FadeUp delay={0.2} className="relative h-[400px] lg:h-[500px] w-full order-1 lg:order-2">
-              <SplineScene 
-                label="SPLINE_DEEPLENS_TEASER" 
-                poster="/spline-poster-deeplens.png"
+            <FadeUp delay={0.2} className="relative h-[400px] lg:h-[500px] w-full order-1 lg:order-2 group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
+              <SplineScene
+                label="SPLINE_DEEPLENS_TEASER"
+                poster="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
+                className="w-full h-full border-0 rounded-none bg-transparent"
+                posterClassName="transition-transform duration-700 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
             </FadeUp>
           </div>
 
           {/* DeployMind */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <FadeUp delay={0.1} className="relative h-[400px] lg:h-[500px] w-full">
-              <SplineScene 
-                label="SPLINE_DEPLOYMIND_TEASER" 
-                poster="/spline-poster-deploymind.png"
+            <FadeUp delay={0.1} className="relative h-[400px] lg:h-[500px] w-full group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
+              <Image
+                src="/products/deploymind-image.jpg"
+                alt="DeployMind"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
             </FadeUp>
             <FadeUp delay={0.2}>
               <h3 className="text-3xl md:text-[32px] font-heading font-semibold text-ink mb-2">DeployMind</h3>
@@ -108,32 +123,40 @@ export function AIProducts() {
           </div>
         </div>
 
-        {/* Other AI Products Bento */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 md:mb-24 auto-rows-fr">
-          {otherAiProducts.map((product, i) => (
-            <StaggerItem 
-              key={i} 
-              className="bg-white border border-border/50 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-[var(--shadow-hover)] hover:border-mint transition-all flex flex-col hover:-translate-y-1"
-            >
-              <div className="w-12 h-12 rounded-xl bg-mint-soft flex items-center justify-center text-emerald mb-6 shrink-0">
-                <product.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-ink mb-3">{product.title}</h3>
-              <p className="text-body text-[15px] sm:text-base">{product.description}</p>
-            </StaggerItem>
-          ))}
+
+
+        <StaggerContainer className="grid grid-cols-2 gap-3 mb-16 md:mb-24">
+          {otherAiProducts.map((product, i) => {
+            return (
+              <StaggerItem key={i} className="bg-white border border/50 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-[var(--shadow-hover)] hover:border-mint transition-all flex flex-col hover:-translate-y-1">
+                <div className="bg-white w-16 h-16 rounded-2xl flex justify-center items-center shadow-sm border border-mint/20 overflow-hidden mb-6">
+                  {product.image ? (
+                    <Image src={product.image} alt={product.title} className={`w-full h-full ${product.title === "Cloud Kitchen Platform" ? "object-cover scale-110" : "object-contain"}`} />
+                  ) : (
+                    <div className="w-full h-full bg-mint-soft flex items-center justify-center">
+                      {product.icon && <product.icon className="w-7 h-7 text-emerald" />}
+                    </div>
+                  )}
+                </div>
+                <h3 className="text-xl font-heading font-semibold text-ink mb-3">{product.title}</h3>
+                <p className="text-body text-[15px]">{product.description}</p>
+
+              </StaggerItem>
+            )
+          })}
+
         </StaggerContainer>
 
         {/* PocketMart - Flagship Community Platform */}
         <FadeUp className="text-center mb-10">
           <h2 className="text-3xl md:text-[36px] font-heading font-semibold text-ink mb-4">Our Flagship Community Platform</h2>
         </FadeUp>
-        
+
         <FadeUp className="mb-16 md:mb-24">
           <div className="bg-white border border-border/50 rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-all">
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-mint-soft flex items-center justify-center text-emerald shrink-0">
-                <Store className="w-8 h-8 md:w-10 md:h-10" />
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-mint-soft flex items-center justify-center text-emerald shrink-0 p-3">
+                <Image src={pocketmartIcon} alt="PocketMart Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h3 className="text-2xl md:text-3xl font-heading font-semibold text-ink mb-4">PocketMart</h3>
