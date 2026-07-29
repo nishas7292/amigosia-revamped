@@ -3,16 +3,21 @@ import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { SplineScene } from "@/components/spline/spline-scene";
-import { CheckCircle2, Store, MapPin, Users, UtensilsCrossed, QrCode } from "lucide-react";
+import { CheckCircle2, Store, MapPin, Users, UtensilsCrossed, QrCode, LucideIcon } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
 import near2meIcon from "@/public/logos/near_2_me_final.png";
 import nearbyestateIcon from "@/public/logos/near_by_estate_final.png";
 import pocketmartIcon from "@/public/logos/pocket mart.webp";
 import digicouponLogo from "@/public/logos/digicoupon.png";
 import cloudKitchenIcon from "@/public/logos/cloud kitchen platform.png";
-import Image from "next/image";
-
-const otherAiProducts = [
+import Image, { StaticImageData } from "next/image";
+interface AIProducts{
+  title:string;
+  description:string;
+  icon?:LucideIcon;
+  image:StaticImageData;
+}
+const otherAiProducts:AIProducts[] = [
   {
     title: "NearByEstate",
     description: "A geolocation-driven real estate marketplace that simplifies local property discovery.",
@@ -21,7 +26,6 @@ const otherAiProducts = [
   {
     title: "Near2Me",
     description: "A hyperlocal marketplace connecting producers directly with nearby consumers.",
-    icon: near2meIcon,
     image: near2meIcon
   },
   {
