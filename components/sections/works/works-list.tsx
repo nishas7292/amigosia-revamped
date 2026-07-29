@@ -4,6 +4,7 @@ import { Store, Building2, LucideIcon } from "lucide-react";
 import kbnholdingsIcon from "@/public/logos/kbn.png";
 import Image, { StaticImageData } from "next/image";
 import PocketMartIcon from "@/public/logos/pocket mart.webp";
+import kldbIcon from "@/public/logos/live stock .png";
 
 type WorkItem = {
   title: string;
@@ -18,6 +19,12 @@ const works: WorkItem[] = [
     description: "A unified platform powering large-scale community commerce — integrating food ordering, local services, elderly care, and e-commerce into a single scalable public-sector ecosystem.",
     icon: Store,
     image:PocketMartIcon
+  },
+  {
+    title: "Kerala Livestock Development Board",
+    description: "Digitizing livestock and pet commerce, connecting farmers to structured online marketplaces.",
+    icon: Building2,
+    image: kldbIcon
   },
   {
     title: "KBN Holdings",

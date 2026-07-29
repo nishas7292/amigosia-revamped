@@ -30,7 +30,7 @@ const clients = [
   },
   {
     name: "DigiCoupon",
-    relationship: "Providing a secure, QR-based physical coupon platform for high-volume events and local commerce.",
+    relationship: "Providing a secure, QR-based physical coupon platform for high-volume events and local commerce. NRO (National Resource Organisation) is also our client.",
     logo: digicouponLogo,
   },
 ];

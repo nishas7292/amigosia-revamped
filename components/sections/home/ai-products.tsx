@@ -9,6 +9,7 @@ import near2meIcon from "@/public/logos/near_2_me_final.png";
 import nearbyestateIcon from "@/public/logos/near_by_estate_final.png";
 import pocketmartIcon from "@/public/logos/pocket mart.webp";
 import digicouponLogo from "@/public/logos/digicoupon.png";
+import cloudKitchenIcon from "@/public/logos/cloud kitchen platform.png";
 import Image from "next/image";
 
 const otherAiProducts = [
@@ -27,6 +28,7 @@ const otherAiProducts = [
     title: "Cloud Kitchen Platform",
     description: "An end-to-end digital system to manage ordering, operations, and delivery in one place.",
     icon: UtensilsCrossed,
+    image: cloudKitchenIcon,
   },
   {
     title: "DigiCoupon",
@@ -77,7 +79,8 @@ export function AIProducts() {
               <SplineScene
                 label="SPLINE_DEEPLENS_TEASER"
                 poster="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
-                className="w-full h-full border-0 rounded-none bg-transparent transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full border-0 rounded-none bg-transparent"
+                posterClassName="transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
             </FadeUp>
@@ -86,11 +89,11 @@ export function AIProducts() {
           {/* DeployMind */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <FadeUp delay={0.1} className="relative h-[400px] lg:h-[500px] w-full group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
-              <SplineScene
-                label="SPLINE_DEPLOYMIND_TEASER"
-                poster="/products/deploymind.jpg"
-                className="w-full h-full border-0 rounded-none bg-transparent transition-transform duration-700 group-hover:scale-105"
-                posterClassName="!object-contain mix-blend-multiply"
+              <Image
+                src="/products/deploymind-image.jpg"
+                alt="DeployMind"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
             </FadeUp>
@@ -120,17 +123,19 @@ export function AIProducts() {
           </div>
         </div>
 
-        
+
 
         <StaggerContainer className="grid grid-cols-2 gap-3 mb-16 md:mb-24">
           {otherAiProducts.map((product, i) => {
             return (
               <StaggerItem key={i} className="bg-white border border/50 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-[var(--shadow-hover)] hover:border-mint transition-all flex flex-col hover:-translate-y-1">
-                <div className="bg-mint-soft w-12 h-12 rounded-2xl flex justify-center items-center">
+                <div className="bg-white w-16 h-16 rounded-2xl flex justify-center items-center shadow-sm border border-mint/20 overflow-hidden mb-6">
                   {product.image ? (
-                    <Image src={product.image} alt={product.title} className="h-8 w-auto" />
+                    <Image src={product.image} alt={product.title} className={`w-full h-full ${product.title === "Cloud Kitchen Platform" ? "object-cover scale-110" : "object-contain"}`} />
                   ) : (
-                    product.icon && <product.icon className="w-6 h-6" />
+                    <div className="w-full h-full bg-mint-soft flex items-center justify-center">
+                      {product.icon && <product.icon className="w-7 h-7 text-emerald" />}
+                    </div>
                   )}
                 </div>
                 <h3 className="text-xl font-heading font-semibold text-ink mb-3">{product.title}</h3>
