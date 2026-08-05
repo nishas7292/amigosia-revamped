@@ -18,9 +18,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontHeading.variable} h-full antialiased`}
+      className={`${fontSans.variable} ${fontHeading.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans overflow-x-hidden">
+      <body className="min-h-screen flex flex-col font-sans overflow-x-clip">
         <LenisProvider>
           <Navbar />
           <main className="flex-1 flex flex-col min-h-screen pt-20">

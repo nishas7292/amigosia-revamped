@@ -1,25 +1,13 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useScroll, useTransform, motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
-import { CheckCircle2, Network, GitBranch, Cpu } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export function DeepLensBlock() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"],
-  });
-
-  const step1Opacity = useTransform(scrollYProgress, [0, 0.2, 0.3], [0.3, 1, 0.3]);
-  const step2Opacity = useTransform(scrollYProgress, [0.3, 0.5, 0.6], [0.3, 1, 0.3]);
-  const step3Opacity = useTransform(scrollYProgress, [0.6, 0.8, 1], [0.3, 1, 1]);
-
   return (
     <Section>
       <Container>
@@ -39,41 +27,46 @@ export function DeepLensBlock() {
           </div>
         </FadeUp>
 
-        {/* Scroll Stepper */}
+        {/* How it works */}
         <div className="mb-24 md:mb-32">
-          <h3 className="text-3xl md:text-4xl font-heading font-semibold text-ink mb-16 text-center">How it works</h3>
-          <div ref={containerRef} className="relative flex flex-col md:flex-row gap-12 max-w-5xl mx-auto">
-            {/* Sticky Graphic Column */}
-            <div className="md:w-1/2 flex items-start justify-center relative h-[60vh] md:h-auto md:min-h-screen">
-              <div className="sticky top-[25vh] w-full max-w-[400px] aspect-square bg-mint-soft rounded-3xl flex items-center justify-center border border-mint/50 overflow-hidden relative shadow-soft hover:shadow-hover transition-shadow duration-500 group">
-                <Image
-                  src="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
-                  alt="DeepLens Analysis"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0" />
-              </div>
+          <FadeUp className="text-center mb-12 md:mb-16">
+            <h3 className="text-3xl md:text-4xl font-heading font-semibold text-ink mb-4">How it works</h3>
+            <p className="text-lg text-body max-w-2xl mx-auto">
+              From source code parsing to AI-powered impact assessment in three automated steps.
+            </p>
+          </FadeUp>
+
+          {/* Product Image Preview */}
+          <FadeUp className="mb-12">
+            <div className="relative h-[280px] sm:h-[380px] md:h-[450px] w-full rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500 group">
+              <Image
+                src="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
+                alt="DeepLens Analysis"
+                fill
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-emerald/20 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
             </div>
-            
-            {/* Steps Text Column */}
-            <div className="md:w-1/2 flex flex-col py-[10vh] md:py-[20vh]">
-              <motion.div style={{ opacity: step1Opacity }} className="min-h-[50vh] flex flex-col justify-center">
-                <div className="text-5xl md:text-7xl font-heading font-bold text-mint mb-6">1</div>
-                <h4 className="text-2xl md:text-3xl font-heading font-semibold text-ink mb-4">Map</h4>
-                <p className="text-body text-lg leading-relaxed">Scanner module parses your Python code via AST, extracting every import, function call, and class dependency into a Neo4j graph database.</p>
-              </motion.div>
-              <motion.div style={{ opacity: step2Opacity }} className="min-h-[50vh] flex flex-col justify-center">
-                <div className="text-5xl md:text-7xl font-heading font-bold text-mint mb-6">2</div>
-                <h4 className="text-2xl md:text-3xl font-heading font-semibold text-ink mb-4">Detect</h4>
-                <p className="text-body text-lg leading-relaxed">Detector module tracks changes since the last scan (including uncommitted edits) via stateful Git integration.</p>
-              </motion.div>
-              <motion.div style={{ opacity: step3Opacity }} className="min-h-[50vh] flex flex-col justify-center">
-                <div className="text-5xl md:text-7xl font-heading font-bold text-mint mb-6">3</div>
-                <h4 className="text-2xl md:text-3xl font-heading font-semibold text-ink mb-4">Analyze</h4>
-                <p className="text-body text-lg leading-relaxed">AI engine feeds the diff plus full graph context to an LLM (Groq, Gemini, or OpenAI) for a structured, semantic risk report.</p>
-              </motion.div>
-            </div>
+          </FadeUp>
+
+          {/* 3 Steps in Flex Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <FadeUp delay={0.1} className="bg-surface border border-border rounded-2xl p-8 shadow-sm hover:shadow-hover hover:border-mint transition-all flex flex-col hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-heading font-bold text-mint mb-4">01</div>
+              <h4 className="text-2xl font-heading font-semibold text-ink mb-3">Map</h4>
+              <p className="text-body text-base leading-relaxed">Scanner module parses your Python code via AST, extracting every import, function call, and class dependency into a Neo4j graph database.</p>
+            </FadeUp>
+            <FadeUp delay={0.2} className="bg-surface border border-border rounded-2xl p-8 shadow-sm hover:shadow-hover hover:border-mint transition-all flex flex-col hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-heading font-bold text-mint mb-4">02</div>
+              <h4 className="text-2xl font-heading font-semibold text-ink mb-3">Detect</h4>
+              <p className="text-body text-base leading-relaxed">Detector module tracks changes since the last scan (including uncommitted edits) via stateful Git integration.</p>
+            </FadeUp>
+            <FadeUp delay={0.3} className="bg-surface border border-border rounded-2xl p-8 shadow-sm hover:shadow-hover hover:border-mint transition-all flex flex-col hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-heading font-bold text-mint mb-4">03</div>
+              <h4 className="text-2xl font-heading font-semibold text-ink mb-3">Analyze</h4>
+              <p className="text-body text-base leading-relaxed">AI engine feeds the diff plus full graph context to an LLM (Groq, Gemini, or OpenAI) for a structured, semantic risk report.</p>
+            </FadeUp>
           </div>
         </div>
 

@@ -174,7 +174,7 @@ export function AIProducts() {
 
         <FadeUp className="text-center">
           <Button asChild variant="outline" size="lg" className="border-emerald text-emerald hover:bg-emerald hover:text-white rounded-full px-10 border-2">
-            <Link href="/works">View All Works &rarr;</Link>
+            <Link href="/products">Explore All Products &rarr;</Link>
           </Button>
         </FadeUp>
       </Container>

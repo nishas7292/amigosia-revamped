@@ -6,10 +6,30 @@ import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 
 const events = [
-  { year: "Sept 2022", title: "Amigosia founded at Kerala Start-up Mission Incubation Centre, Palakkad" },
-  { year: "2024", title: "Became technology partner to Kudumbashree" },
-  { year: "Oct 2025", title: "Entered international expansion with KBN Holdings (Qatar) partnership" },
-  { year: "2026", title: "Ongoing product suite expansion (PocketMart, Near2Me, DigiCoupon, and more)" },
+  {
+    year: "Oct 2021",
+    title: "Founded in October 2021, we create modern software solutions for businesses of all sizes.",
+  },
+  {
+    year: "Sept 2022",
+    title: "Amigosia established at Kerala Start-up Mission Incubation Centre, Palakkad",
+  },
+  {
+    year: "2024",
+    title: "Became technology partner to Kudumbashree",
+  },
+  {
+    year: "Jan 2025",
+    title: "Formed a strategic partnership with Logizen to deliver smarter digital solutions",
+  },
+  {
+    year: "Oct 2025",
+    title: "Entered international expansion with KBN Holdings (Qatar) partnership",
+  },
+  {
+    year: "2026",
+    title: "Ongoing product suite expansion (PocketMart, Near2Me, DigiCoupon, and more)",
+  },
 ];
 
 export function Timeline() {

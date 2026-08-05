@@ -8,13 +8,11 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Container } from "./container";
-import { motion, AnimatePresence } from "motion/react";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
-  { name: "Works", href: "/works" },
   { name: "Services", href: "/services" },
   { name: "Clients", href: "/clients" },
   { name: "Careers", href: "/careers" },
@@ -97,83 +95,106 @@ export function Navbar() {
           </nav>
 
           {/* Mobile Nav Toggle */}
-          <div className="md:hidden flex items-center gap-3">
-            <Button asChild size="sm" className="bg-emerald text-white hover:bg-emerald-dark rounded-full">
+          <div className="md:hidden flex items-center gap-2">
+            <Button asChild size="sm" className="bg-emerald text-white hover:bg-emerald-dark rounded-full text-xs px-3.5 h-8">
               <Link href="/contact">Talk to Us</Link>
             </Button>
             
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="text-ink"
+            <button 
+              type="button"
               onClick={() => setIsOpen(true)}
+              className="p-2 text-ink hover:text-emerald hover:bg-mint-soft rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-emerald active:scale-95"
               aria-label="Open navigation menu"
               aria-expanded={isOpen}
             >
               <Menu className="h-6 w-6" />
-            </Button>
+            </button>
           </div>
         </Container>
       </header>
 
-      {/* Mobile Nav Drawer */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Backdrop Overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 md:hidden"
-              onClick={() => setIsOpen(false)}
-              aria-hidden="true"
-            />
-            
-            {/* Drawer */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[300px] sm:w-[400px] bg-white shadow-2xl z-50 flex flex-col md:hidden"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Mobile Navigation Menu"
-            >
-              <div className="flex items-center justify-end p-5 border-b border-border">
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="text-ink hover:bg-mint-soft hover:text-emerald"
-                  onClick={() => setIsOpen(false)}
-                  aria-label="Close navigation menu"
-                >
-                  <X className="h-6 w-6" />
-                </Button>
-              </div>
-              
-              <nav className="flex flex-col gap-6 p-8 overflow-y-auto">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={cn(
-                      "text-xl font-medium transition-colors",
-                      pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href)) 
-                        ? "text-emerald" 
-                        : "text-ink hover:text-emerald"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </nav>
-            </motion.div>
-          </>
+      {/* Mobile Nav Overlay & Sidebar Drawer */}
+      <div
+        className={cn(
+          "fixed inset-0 z-[100] md:hidden transition-all duration-300",
+          isOpen ? "pointer-events-auto visible" : "pointer-events-none invisible"
         )}
-      </AnimatePresence>
+      >
+        {/* Backdrop */}
+        <div
+          className={cn(
+            "absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300",
+            isOpen ? "opacity-100" : "opacity-0"
+          )}
+          onClick={() => setIsOpen(false)}
+          aria-hidden="true"
+        />
+
+        {/* Sidebar Drawer */}
+        <div
+          className={cn(
+            "absolute top-0 right-0 h-[100dvh] w-[85vw] max-w-[320px] bg-white shadow-2xl flex flex-col border-l border-border transition-transform duration-300 ease-out z-[101]",
+            isOpen ? "translate-x-0" : "translate-x-full"
+          )}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation Menu"
+        >
+          {/* Drawer Header */}
+          <div className="flex items-center justify-between p-5 border-b border-border bg-white">
+            <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
+              <Image
+                src="/amigosia-logo.png"
+                alt="Amigosia"
+                width={1131}
+                height={1600}
+                className="h-8 w-auto"
+              />
+              <span className="font-heading font-semibold text-lg text-ink">Amigosia</span>
+            </Link>
+            <button 
+              type="button"
+              className="p-2 text-ink hover:text-emerald hover:bg-mint-soft rounded-lg transition-colors active:scale-95"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close navigation menu"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+
+          {/* Menu Links */}
+          <nav className="flex-1 flex flex-col gap-1.5 p-5 overflow-y-auto bg-white">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href));
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={cn(
+                    "px-4 py-3 rounded-xl text-base font-medium transition-all flex items-center justify-between",
+                    isActive 
+                      ? "bg-mint-soft text-emerald font-semibold" 
+                      : "text-ink hover:bg-surface-alt hover:text-emerald"
+                  )}
+                >
+                  <span>{link.name}</span>
+                  {isActive && <span className="w-2 h-2 rounded-full bg-emerald" />}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Drawer Footer */}
+          <div className="p-5 border-t border-border bg-surface-alt">
+            <Button asChild className="w-full bg-emerald text-white hover:bg-emerald-dark rounded-full h-12 text-base font-medium shadow-sm">
+              <Link href="/contact" onClick={() => setIsOpen(false)}>
+                Talk to Us
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

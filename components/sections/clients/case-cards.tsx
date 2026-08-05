@@ -1,13 +1,20 @@
 import { Container, Section } from "@/components/layout/container";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import kudumbashreeLogo from "@/public/partner_logos/logo-kudumbashree.png";
-import livestockLogo from "@/public/logos/live stock .png";
+import kldbLogo from "@/public/partner_logos/logo-kldb.png";
 import logizenLogo from "@/public/logos/logizen_logo.png";
 import kbnholdingsLogo from "@/public/logos/kbn.png";
 import digicouponLogo from "@/public/logos/digicoupon.png";
 
-const clients = [
+interface ClientCardItem {
+  name: string;
+  relationship: string;
+  logo: StaticImageData;
+  className?: string;
+}
+
+const clients: ClientCardItem[] = [
   {
     name: "Kudumbashree (Govt. of Kerala)",
     relationship: "Technology partner since 2024, supporting digital expansion of one of India's largest community-led economic missions",
@@ -16,7 +23,8 @@ const clients = [
   {
     name: "Kerala Livestock Development Board",
     relationship: "Digitizing livestock and pet commerce, connecting farmers to structured online marketplaces",
-    logo: livestockLogo,
+    logo: kldbLogo,
+    className: "brightness-0 opacity-80",
   },
   {
     name: "Logizen LLC (USA)",
@@ -29,7 +37,7 @@ const clients = [
     logo: kbnholdingsLogo,
   },
   {
-    name: "DigiCoupon",
+    name: "NRO (National Resource Organisation)",
     relationship: "Providing a secure, QR-based physical coupon platform for high-volume events and local commerce. NRO (National Resource Organisation) is also our client.",
     logo: digicouponLogo,
   },
@@ -47,8 +55,12 @@ export function CaseCards() {
             >
               <div>
                 {client.logo && (
-                  <div className="h-16 mb-8 flex items-center">
-                    <Image src={client.logo} alt={client.name} className="max-h-full w-auto object-contain" />
+                  <div className="h-20 sm:h-24 mb-8 flex items-center justify-center w-full">
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      className={`h-16 sm:h-20 max-w-[260px] w-auto object-contain ${client.className || ""}`}
+                    />
                   </div>
                 )}
                 <p className="text-body text-lg leading-relaxed mb-12">
