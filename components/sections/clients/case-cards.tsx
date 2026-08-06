@@ -75,18 +75,18 @@ export function CaseCards() {
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
                   {client.tag && (
-                    <span className="text-xs font-semibold uppercase tracking-wider text-emerald bg-mint-soft px-3 py-1 rounded-full border border-mint/40">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-emerald">
                       {client.tag}
                     </span>
                   )}
                 </div>
 
                 {client.logo && (
-                  <div className="h-20 sm:h-24 mb-8 flex items-center justify-center w-full bg-surface-alt/60 rounded-2xl p-4 border border-border/50">
+                  <div className="h-20 sm:h-24 mb-8 flex items-center justify-center w-full">
                     <Image
                       src={client.logo}
                       alt={client.name}
-                      className={`h-16 sm:h-20 max-w-[260px] w-auto object-contain ${client.className || ""}`}
+                      className={`h-16 sm:h-20 max-w-[260px] w-auto object-contain transition-transform duration-300 hover:scale-105 ${client.className || ""}`}
                     />
                   </div>
                 )}

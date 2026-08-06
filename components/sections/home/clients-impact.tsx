@@ -84,13 +84,6 @@ const clientLogos: ClientLogoItem[] = [
     height: 38,
     className: "opacity-85 hover:opacity-100",
   },
-  {
-    name: "DigiCoupon (NRO)",
-    src: "/logos/digicoupon.png",
-    alt: "DigiCoupon - NRO Technology Partner",
-    height: 34,
-    className: "opacity-85 hover:opacity-100",
-  },
 ];
 
 export function ClientsImpact() {

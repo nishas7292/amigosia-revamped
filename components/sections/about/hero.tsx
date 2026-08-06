@@ -15,33 +15,43 @@ export function AboutHero() {
             We design and build impactful digital platforms that help businesses and communities transition seamlessly into the digital economy. As a product-centric company, we collaborate with startups and enterprises globally — acting as a trusted, cost-efficient software partner from concept to scale.
           </p>
           
-          <div className="w-full max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-around gap-8 sm:gap-12 bg-emerald text-white rounded-3xl p-8 sm:px-12 sm:py-9 shadow-lg border border-mint/25">
-            <div className="flex-1 flex flex-col items-center gap-4 text-center">
-              <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-white/95">
-                Recognized by Start-up India
-              </span>
-              <Image
-                src="/logos/startu india logo.png"
-                alt="Start-up India"
-                width={160}
-                height={40}
-                className="h-9 md:h-10 w-auto object-contain"
-              />
-            </div>
+          {/* Recognized By */}
+          <div className="w-full max-w-5xl mx-auto mt-16">
+            <div className="w-full flex flex-col gap-6 sm:flex-row sm:gap-0 sm:bg-emerald sm:text-white sm:rounded-3xl sm:p-10 sm:px-14 sm:py-12 sm:shadow-xl sm:border sm:border-mint/30 sm:items-center sm:justify-around">
+              {/* Startup India */}
+              <div className="flex-1 flex flex-col items-center justify-center gap-5 bg-emerald text-white rounded-2xl p-8 sm:bg-transparent sm:p-0 sm:shadow-none sm:border-0 shadow-lg border border-mint/25 text-center">
+                <div className="h-20 sm:h-28 md:h-36 flex items-center justify-center">
+                  <Image
+                    src="/logos/startu india logo (1).png"
+                    alt="Recognized by Start-up India"
+                    width={400}
+                    height={140}
+                    className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <span className="text-sm sm:text-base font-semibold tracking-wider uppercase text-white/95 leading-snug">
+                  Recognized by Start-up India
+                </span>
+              </div>
 
-            <div className="hidden sm:block w-px h-16 bg-white/20" />
+              {/* Divider on Desktop */}
+              <div className="hidden sm:block w-px h-36 bg-white/20 mx-8 md:mx-12" />
 
-            <div className="flex-1 flex flex-col items-center gap-4 text-center">
-              <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-white/95">
-                Recognized by Kerala Start-up Mission
-              </span>
-              <Image
-                src="/logos/kerala-startup-mission-logo.png"
-                alt="Kerala Start-up Mission"
-                width={160}
-                height={48}
-                className="h-10 md:h-12 w-auto object-contain"
-              />
+              {/* Kerala Startup Mission */}
+              <div className="flex-1 flex flex-col items-center justify-center gap-5 bg-emerald text-white rounded-2xl p-8 sm:bg-transparent sm:p-0 sm:shadow-none sm:border-0 shadow-lg border border-mint/25 text-center">
+                <div className="h-20 sm:h-28 md:h-36 flex items-center justify-center">
+                  <Image
+                    src="/logos/kerala-startup-mission-logo (1).png"
+                    alt="Recognized by Kerala Start-up Mission"
+                    width={400}
+                    height={140}
+                    className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <span className="text-sm sm:text-base font-semibold tracking-wider uppercase text-white/95 leading-snug">
+                  Recognized by Kerala Start-up Mission
+                </span>
+              </div>
             </div>
           </div>
         </FadeUp>
