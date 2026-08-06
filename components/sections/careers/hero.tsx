@@ -54,16 +54,13 @@ Thank you!`;
             Join a team of passionate developers, designers, and innovators creating software that makes a real impact.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 bg-white/90 backdrop-blur-sm border border-border px-8 py-5 rounded-2xl sm:rounded-full shadow-sm">
-            <span className="text-base sm:text-lg font-medium text-ink">
-              Connect with us :
-            </span>
+          <div className="flex items-center justify-center">
             <a
               href={isMobile ? mailtoUrl : gmailComposeUrl}
               target={isMobile ? undefined : "_blank"}
               rel={isMobile ? undefined : "noopener noreferrer"}
               onClick={handleConnectClick}
-              className="inline-flex items-center justify-center gap-2 bg-emerald text-white hover:bg-emerald-dark rounded-full px-8 py-3.5 text-base font-semibold shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 bg-emerald text-white hover:bg-emerald-dark rounded-full px-10 py-4 text-base sm:text-lg font-semibold shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer hover:-translate-y-0.5"
             >
               <Mail className="w-5 h-5" />
               <span>Connect with us</span>
