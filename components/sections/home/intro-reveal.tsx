@@ -32,29 +32,34 @@ export function IntroReveal() {
           </FadeUp>
         </div>
 
-        {/* Recognized By Badges */}
-        <FadeUp delay={0.15} className="flex flex-col items-center justify-center mb-12">
-          <p className="text-xs font-semibold tracking-widest text-muted uppercase mb-5">
-            Recognized by
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            <div className="flex items-center">
+        {/* Recognized By Emerald Box (Same as About Page) */}
+        <FadeUp delay={0.15} className="mb-14">
+          <div className="w-full max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-around gap-8 sm:gap-12 bg-emerald text-white rounded-3xl p-8 sm:px-12 sm:py-9 shadow-lg border border-mint/25">
+            <div className="flex-1 flex flex-col items-center gap-4 text-center">
+              <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-white/95">
+                Recognized by Start-up India
+              </span>
               <Image
                 src="/logos/startu india logo.png"
-                alt="Start-up India Logo"
-                width={140}
+                alt="Start-up India"
+                width={160}
                 height={40}
-                className="h-8 md:h-9 w-auto object-contain"
+                className="h-9 md:h-10 w-auto object-contain"
               />
             </div>
-            <div className="h-6 w-px bg-border hidden sm:block" />
-            <div className="flex items-center">
+
+            <div className="hidden sm:block w-px h-16 bg-white/20" />
+
+            <div className="flex-1 flex flex-col items-center gap-4 text-center">
+              <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-white/95">
+                Recognized by Kerala Start-up Mission
+              </span>
               <Image
                 src="/logos/kerala-startup-mission-logo.png"
-                alt="Kerala Start-up Mission Logo"
-                width={140}
-                height={44}
-                className="h-9 md:h-11 w-auto object-contain"
+                alt="Kerala Start-up Mission"
+                width={160}
+                height={48}
+                className="h-10 md:h-12 w-auto object-contain"
               />
             </div>
           </div>
