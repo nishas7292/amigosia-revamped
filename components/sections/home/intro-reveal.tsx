@@ -37,29 +37,25 @@ export function IntroReveal() {
           <p className="text-xs font-semibold tracking-widest text-muted uppercase mb-5">
             Recognized by
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 bg-surface-alt border border-border px-8 py-5 rounded-2xl sm:rounded-full shadow-sm">
-            <div className="flex items-center gap-3">
-              <span className="text-xl">🇮🇳</span>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            <div className="flex items-center">
               <Image
                 src="/logos/startu india logo.png"
-                alt="Startup India Logo"
+                alt="Start-up India Logo"
                 width={140}
                 height={40}
-                className="h-7 sm:h-8 w-auto object-contain"
+                className="h-8 md:h-9 w-auto object-contain"
               />
-              <span className="font-heading font-semibold text-ink text-sm sm:text-base">Startup India</span>
             </div>
             <div className="h-6 w-px bg-border hidden sm:block" />
-            <div className="flex items-center gap-3">
-              <span className="text-xl">🚀</span>
+            <div className="flex items-center">
               <Image
                 src="/logos/kerala-startup-mission-logo.png"
-                alt="Kerala Startup Mission (KSUM)"
+                alt="Kerala Start-up Mission Logo"
                 width={140}
                 height={44}
-                className="h-8 sm:h-9 w-auto object-contain"
+                className="h-9 md:h-11 w-auto object-contain"
               />
-              <span className="font-heading font-semibold text-ink text-sm sm:text-base">Kerala Startup Mission (KSUM)</span>
             </div>
           </div>
         </FadeUp>
