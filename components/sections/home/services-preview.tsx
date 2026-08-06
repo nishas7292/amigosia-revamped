@@ -7,28 +7,33 @@ import { ScrollBlurReveal } from "@/components/motion/scroll-blur-reveal";
 const services = [
   {
     word: "Design",
-    title: "Product Design & UX",
-    description: "Figma-led design systems and user experience for web and mobile.",
+    title: "Product Design & User Experience",
+    description:
+      "Creating intuitive, user-centric web and mobile experiences through research-driven UI/UX design, design systems, rapid prototyping, and interactive Figma workflows.",
   },
   {
-    word: "Build",
-    title: "Web & Mobile App Development",
-    description: "React, Angular, React Native, and Flutter builds tailored to your platform.",
+    word: "Development",
+    title: "Web & Mobile Development",
+    description:
+      "Developing high-performance web applications, enterprise portals, and mobile apps using React, Angular, React Native, Flutter, Node.js, and modern cloud-native technologies.",
   },
   {
-    word: "Scale",
-    title: "Backend & Cloud Engineering",
-    description: "Scalable architectures on Node.js, Python, .NET, and AWS.",
+    word: "Cloud & Scale",
+    title: "Cloud & Backend Engineering",
+    description:
+      "Designing scalable backend architectures, secure APIs, microservices, cloud infrastructure, and DevOps pipelines on AWS, Azure, and modern cloud platforms.",
   },
   {
-    word: "Intelligence",
-    title: "AI & Intelligent Systems",
-    description: "RAG architectures, RE-ACT agents, LLM integrations, and custom chatbots.",
+    word: "AI & Automation",
+    title: "Artificial Intelligence & Automation",
+    description:
+      "Building intelligent business solutions using Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), AI Agents, workflow automation, predictive analytics, and custom AI applications.",
   },
   {
-    word: "Impact",
-    title: "Government & Public-Sector Digitization",
-    description: "Large-scale platforms for community missions and public programs.",
+    word: "Transformation",
+    title: "Government Digital Transformation",
+    description:
+      "Delivering secure, scalable technology platforms for government departments, public-sector organizations, cooperative missions, and community-driven digital initiatives across India.",
   },
 ];
 
@@ -39,8 +44,8 @@ export function ServicesPreview() {
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
           <FadeUp className="lg:w-1/3 lg:sticky lg:top-32">
             <h2 className="text-3xl md:text-[44px] font-heading font-semibold text-ink mb-6">What We Do</h2>
-            <p className="text-lg md:text-[20px] text-body mb-10">
-              End-to-end product engineering, from first sketch to scaled deployment.
+            <p className="text-lg md:text-[20px] text-body mb-10 leading-relaxed">
+              End-to-end digital product engineering—from strategy and design to deployment and long-term support.
             </p>
             <Button asChild size="lg" className="bg-emerald text-white hover:bg-emerald-dark rounded-full px-8">
               <Link href="/services">See Our Expertise &rarr;</Link>
@@ -57,7 +62,7 @@ export function ServicesPreview() {
                   word={service.word}
                   subtitle={`${service.title} — ${service.description}`}
                   wordClassName="text-5xl sm:text-6xl md:text-7xl font-heading font-semibold tracking-tight leading-none mb-4"
-                  subtitleClassName="text-base md:text-xl text-body max-w-2xl leading-relaxed"
+                  subtitleClassName="text-base md:text-lg text-body max-w-2xl leading-relaxed"
                 />
               </div>
             ))}

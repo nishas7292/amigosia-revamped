@@ -9,27 +9,38 @@ import kudumbashreeLogo from "@/public/partner_logos/logo-kudumbashree.png";
 import kldbLogo from "@/public/partner_logos/logo-kldb.png";
 import logizenLogo from "@/public/logos/logizen_logo.png";
 import kbnholdingsLogo from "@/public/logos/kbn.png";
+import digicouponLogo from "@/public/logos/digicoupon.png";
 
 const clients = [
   {
-    name: "Kudumbashree (Govt. of Kerala)",
-    relationship: "Technology partner since 2024, supporting digital expansion of one of India's largest community-led economic missions",
+    name: "Kudumbashree Mission (Government of Kerala)",
+    role: "Technology Partner since 2024",
+    relationship: "Supporting the digital transformation of India's largest women-led community development mission through innovative e-commerce, event management, and digital commerce solutions.",
     logo: kudumbashreeLogo,
   },
   {
-    name: "Kerala Livestock Development Board",
-    relationship: "Digitizing livestock and pet commerce, connecting farmers to structured online marketplaces",
+    name: "Kerala Livestock Development Board (KLDB)",
+    role: "Digital Platform Development",
+    relationship: "Developing and maintaining LAPTOP (Livestock And Pets Trading Online Platform), enabling farmers, breeders, and buyers to connect through a secure and efficient digital marketplace across Kerala.",
     logo: kldbLogo,
     className: "brightness-0 opacity-80",
   },
   {
+    name: "National Resource Organisation (NRO)",
+    role: "DigiCoupon Technology Partner",
+    relationship: "Providing the DigiCoupon platform—a secure, QR code-enabled digital and physical coupon management system designed for large-scale events, exhibitions, festivals, and community commerce.",
+    logo: digicouponLogo,
+  },
+  {
     name: "Logizen LLC (USA)",
-    relationship: "Engineering partner for next-generation logistics platforms",
+    role: "Engineering Partner",
+    relationship: "Delivering scalable software engineering solutions and collaborating on next-generation logistics and supply chain technology platforms for global markets.",
     logo: logizenLogo,
   },
   {
     name: "KBN Holdings (Qatar)",
-    relationship: "Strategic software development partnership, established October 2025",
+    role: "Strategic Technology Partner",
+    relationship: "Partnering since October 2025 to design and develop innovative digital solutions, enterprise applications, and scalable business platforms that support operational excellence and digital growth.",
     logo: kbnholdingsLogo,
   },
 ];
@@ -46,9 +57,9 @@ type ClientLogoItem = {
 
 const clientLogos: ClientLogoItem[] = [
   {
-    name: "Kudumbashree",
+    name: "Kudumbashree Mission",
     src: "/partner_logos/logo-kudumbashree.png",
-    alt: "Kudumbashree",
+    alt: "Kudumbashree Mission",
     height: 44,
     className: "brightness-0 invert opacity-85 hover:opacity-100",
   },
@@ -73,6 +84,13 @@ const clientLogos: ClientLogoItem[] = [
     height: 38,
     className: "opacity-85 hover:opacity-100",
   },
+  {
+    name: "DigiCoupon (NRO)",
+    src: "/logos/digicoupon.png",
+    alt: "DigiCoupon - NRO Technology Partner",
+    height: 34,
+    className: "opacity-85 hover:opacity-100",
+  },
 ];
 
 export function ClientsImpact() {
@@ -80,9 +98,15 @@ export function ClientsImpact() {
     <Section className="bg-surface-alt border-y border-border">
       <Container>
         <FadeUp className="text-center mb-10 md:mb-20">
+          <span className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-emerald bg-mint-soft px-4 py-1.5 rounded-full border border-mint/40 inline-block mb-4">
+            Our Partnerships
+          </span>
           <h2 className="text-3xl md:text-[44px] font-heading font-semibold text-ink mb-4 max-w-3xl mx-auto leading-tight">
-            Trusted By Governments, Enterprises, and Global Partners
+            Trusted By
           </h2>
+          <p className="text-body text-base sm:text-lg max-w-2xl mx-auto">
+            Trusted by governments, enterprises, and global partners to build resilient digital infrastructure.
+          </p>
         </FadeUp>
 
         <FadeUp delay={0.1} className="mb-10 md:mb-20">
@@ -104,7 +128,9 @@ export function ClientsImpact() {
           {clients.map((client, i) => (
             <StaggerItem 
               key={i} 
-              className="bg-white rounded-2xl p-8 sm:p-10 shadow-sm hover:shadow-[var(--shadow-hover)] transition-all flex flex-col justify-between hover:-translate-y-1"
+              className={`bg-white rounded-2xl p-8 sm:p-10 shadow-sm hover:shadow-[var(--shadow-hover)] transition-all flex flex-col justify-between hover:-translate-y-1 ${
+                i === clients.length - 1 && clients.length % 2 !== 0 ? "md:col-span-2 md:max-w-2xl md:mx-auto w-full" : ""
+              }`}
             >
               <div>
                 {client.logo && (
@@ -112,11 +138,14 @@ export function ClientsImpact() {
                     <Image src={client.logo} alt={client.name} className={`max-h-full w-auto object-contain ${client.className || ""}`} />
                   </div>
                 )}
-                <p className="text-body text-[17px] mb-8 leading-relaxed">
-                  "{client.relationship}"
+                <span className="inline-block text-xs font-semibold text-emerald uppercase tracking-wider mb-2">
+                  {client.role}
+                </span>
+                <p className="text-body text-[16px] mb-8 leading-relaxed">
+                  {client.relationship}
                 </p>
               </div>
-              <h3 className="text-xl font-heading font-semibold text-ink border-t border-border pt-6">
+              <h3 className="text-lg sm:text-xl font-heading font-semibold text-ink border-t border-border pt-6">
                 {client.name}
               </h3>
             </StaggerItem>
