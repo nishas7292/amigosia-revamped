@@ -56,7 +56,7 @@ export function TrustStrip() {
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
               <div className="flex items-center gap-2">
                 <Image
-                  src="/logos/startu india logo.png"
+                  src="/logos/startu india logo (1).png"
                   alt="Start-up India Logo"
                   width={140}
                   height={40}
@@ -66,7 +66,7 @@ export function TrustStrip() {
               <div className="h-6 w-px bg-border hidden sm:block" />
               <div className="flex items-center gap-2">
                 <Image
-                  src="/logos/kerala-startup-mission-logo.png"
+                  src="/logos/kerala-startup-mission-logo (1).png"
                   alt="Kerala Start-up Mission Logo"
                   width={140}
                   height={44}
