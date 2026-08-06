@@ -1,26 +1,14 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
-import { useScroll, useTransform, motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
-import { CheckCircle2, GitMerge, Settings, Cloud } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { CountUp } from "@/components/motion/count-up";
 import Image from "next/image";
 
 export function DeployMindBlock() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"],
-  });
-
-  const step1Opacity = useTransform(scrollYProgress, [0, 0.2, 0.3], [0.3, 1, 0.3]);
-  const step2Opacity = useTransform(scrollYProgress, [0.3, 0.5, 0.6], [0.3, 1, 0.3]);
-  const step3Opacity = useTransform(scrollYProgress, [0.6, 0.8, 1], [0.3, 1, 1]);
-
   return (
     <Section className="bg-surface-alt border-t border-border pt-24 md:pt-32 pb-0">
       <Container>
@@ -40,41 +28,46 @@ export function DeployMindBlock() {
           </div>
         </FadeUp>
 
-        {/* Scroll Stepper */}
+        {/* How it works */}
         <div className="mb-24 md:mb-32">
-          <h3 className="text-3xl md:text-4xl font-heading font-semibold text-ink mb-16 text-center">How it works</h3>
-          <div ref={containerRef} className="relative flex flex-col md:flex-row gap-12 max-w-5xl mx-auto">
-            {/* Sticky Graphic Column */}
-            <div className="md:w-1/2 flex items-start justify-center relative h-[60vh] md:h-auto md:min-h-screen">
-              <div className="sticky top-[25vh] w-full max-w-[400px] aspect-square bg-mint-soft rounded-3xl flex items-center justify-center border border-mint/50 overflow-hidden relative shadow-soft hover:shadow-hover transition-shadow duration-500 group">
-                <Image 
-                  src="/products/deploymind-image.jpg" 
-                  alt="DeployMind" 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
-                />
-                <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0" />
-              </div>
-            </div>
+          <FadeUp className="text-center mb-12 md:mb-16">
+            <h3 className="text-3xl md:text-4xl font-heading font-semibold text-ink mb-4">How it works</h3>
+            <p className="text-lg text-body max-w-2xl mx-auto">
+              Automate your entire cloud infrastructure and deployment workflow in three simple steps.
+            </p>
+          </FadeUp>
 
-            {/* Steps Text Column */}
-            <div className="md:w-1/2 flex flex-col py-[10vh] md:py-[20vh]">
-              <motion.div style={{ opacity: step1Opacity }} className="min-h-[50vh] flex flex-col justify-center">
-                <div className="text-5xl md:text-7xl font-heading font-bold text-mint mb-6">1</div>
-                <h4 className="text-2xl md:text-3xl font-heading font-semibold text-ink mb-4">Connect</h4>
-                <p className="text-body text-lg leading-relaxed">DeployMind scans your GitHub project to understand what your app needs to run.</p>
-              </motion.div>
-              <motion.div style={{ opacity: step2Opacity }} className="min-h-[50vh] flex flex-col justify-center">
-                <div className="text-5xl md:text-7xl font-heading font-bold text-mint mb-6">2</div>
-                <h4 className="text-2xl md:text-3xl font-heading font-semibold text-ink mb-4">Generate</h4>
-                <p className="text-body text-lg leading-relaxed">We generate everything — deployment pipeline and cloud setup files, no configuration needed.</p>
-              </motion.div>
-              <motion.div style={{ opacity: step3Opacity }} className="min-h-[50vh] flex flex-col justify-center">
-                <div className="text-5xl md:text-7xl font-heading font-bold text-mint mb-6">3</div>
-                <h4 className="text-2xl md:text-3xl font-heading font-semibold text-ink mb-4">Go Live</h4>
-                <p className="text-body text-lg leading-relaxed">Your app goes live — the pipeline runs automatically on the cloud of your choice.</p>
-              </motion.div>
+          {/* Product Image Preview */}
+          <FadeUp className="mb-12">
+            <div className="relative h-[280px] sm:h-[380px] md:h-[450px] w-full rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500 group">
+              <Image 
+                src="/products/deploymind-image.jpg" 
+                alt="DeployMind" 
+                fill 
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+              />
+              <div className="absolute inset-0 bg-emerald/20 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
             </div>
+          </FadeUp>
+
+          {/* 3 Steps in Flex Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <FadeUp delay={0.1} className="bg-white border border-border rounded-2xl p-8 shadow-sm hover:shadow-hover hover:border-mint transition-all flex flex-col hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-heading font-bold text-mint mb-4">01</div>
+              <h4 className="text-2xl font-heading font-semibold text-ink mb-3">Connect</h4>
+              <p className="text-body text-base leading-relaxed">DeployMind scans your GitHub project to understand what your app needs to run.</p>
+            </FadeUp>
+            <FadeUp delay={0.2} className="bg-white border border-border rounded-2xl p-8 shadow-sm hover:shadow-hover hover:border-mint transition-all flex flex-col hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-heading font-bold text-mint mb-4">02</div>
+              <h4 className="text-2xl font-heading font-semibold text-ink mb-3">Generate</h4>
+              <p className="text-body text-base leading-relaxed">We generate everything — deployment pipeline and cloud setup files, no configuration needed.</p>
+            </FadeUp>
+            <FadeUp delay={0.3} className="bg-white border border-border rounded-2xl p-8 shadow-sm hover:shadow-hover hover:border-mint transition-all flex flex-col hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-heading font-bold text-mint mb-4">03</div>
+              <h4 className="text-2xl font-heading font-semibold text-ink mb-3">Go Live</h4>
+              <p className="text-body text-base leading-relaxed">Your app goes live — the pipeline runs automatically on the cloud of your choice.</p>
+            </FadeUp>
           </div>
         </div>
 

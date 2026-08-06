@@ -64,7 +64,7 @@ export function HeroSection({ backgroundVideo }: HeroSectionProps) {
           </motion.div>
 
           <TextReveal
-            text="Building Scalable Digital Products for Startups, Enterprises, and Global Partners"
+            text="Building Scalable Digital Products for Governments, Enterprises & Global Partners"
             className="justify-center text-4xl md:text-5xl lg:text-[64px] font-heading font-semibold leading-[1.1] tracking-tight text-ink"
           />
         </motion.div>

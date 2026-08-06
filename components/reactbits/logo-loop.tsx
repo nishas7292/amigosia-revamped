@@ -31,6 +31,8 @@ interface LogoImageItem {
   alt?: string;
   title?: string;
   href?: string;
+  className?: string;
+  style?: CSSProperties;
 }
 
 export type LogoItem = LogoNodeItem | LogoImageItem;
@@ -318,6 +320,8 @@ export const LogoLoop = memo(function LogoLoop({
           loading="lazy"
           decoding="async"
           draggable={false}
+          style={item.height ? { height: `${item.height}px`, width: "auto", ...item.style } : item.style}
+          className={item.className}
         />
       );
       const itemAriaLabel = isNodeItem ? (item.ariaLabel ?? item.title) : (item.alt ?? item.title);
