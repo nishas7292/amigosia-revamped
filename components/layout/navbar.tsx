@@ -54,13 +54,11 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 w-full z-40 transition-all duration-300",
-          scrolled
-            ? "bg-white/90 backdrop-blur-md border-b border-border shadow-sm py-3"
-            : "bg-transparent py-5"
+          "fixed top-0 w-full z-40 transition-all duration-300 bg-white/95 backdrop-blur-md border-b shadow-sm",
+          scrolled ? "border-border/60 py-3" : "border-border/20 py-4"
         )}
       >
-        <Container className="flex items-center justify-between">
+        <Container className="flex items-center justify-between min-h-[56px] md:min-h-[64px]">
           <Link href="/" className="flex items-center gap-2.5 shrink-0 -mt-1">
             <Image
               src="/amigosia-logo.png"
