@@ -1,62 +1,65 @@
-import Image from "next/image";
 import { FadeUp } from "@/components/motion/fade-up";
-import { Container, Section } from "@/components/layout/container";
+import { Container } from "@/components/layout/container";
 
 export function AboutHero() {
   return (
-    <Section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-surface-alt border-b border-border text-center">
-      <Container>
-        <FadeUp className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-heading font-semibold text-ink mb-8 tracking-tight">About Amigosia</h1>
-          <p className="text-xl md:text-2xl text-body leading-relaxed mb-12 font-medium">
-            Amigosia Private Limited is an innovative software startup established in September 2022, operating from the Kerala Start-up Mission Incubation Centre, Palakkad.
-          </p>
-          <p className="text-lg text-body leading-relaxed max-w-3xl mx-auto mb-16">
-            We design and build impactful digital platforms that help businesses and communities transition seamlessly into the digital economy. As a product-centric company, we collaborate with startups and enterprises globally — acting as a trusted, cost-efficient software partner from concept to scale.
-          </p>
-          
-          {/* Recognized By */}
-          <div className="w-full max-w-5xl mx-auto mt-16">
-            <div className="w-full flex flex-col gap-6 sm:flex-row sm:gap-0 sm:bg-emerald sm:text-white sm:rounded-3xl sm:p-10 sm:px-14 sm:py-12 sm:shadow-xl sm:border sm:border-mint/30 sm:items-center sm:justify-around">
-              {/* Startup India */}
-              <div className="flex-1 flex flex-col items-center justify-center gap-5 bg-emerald text-white rounded-2xl p-8 sm:bg-transparent sm:p-0 sm:shadow-none sm:border-0 shadow-lg border border-mint/25 text-center">
-                <div className="h-20 sm:h-28 md:h-36 flex items-center justify-center">
-                  <Image
-                    src="/logos/startu india logo (1).png"
-                    alt="Recognized by Start-up India"
-                    width={400}
-                    height={140}
-                    className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-                <span className="text-sm sm:text-base font-semibold tracking-wider uppercase text-white/95 leading-snug">
-                  Recognized by Start-up India
-                </span>
-              </div>
+    <div className="relative w-full min-h-[650px] md:min-h-[700px] flex items-center justify-center bg-white overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
+      {/* Subtle emerald radial gradient behind the central hero content */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-[radial-gradient(circle_at_center,rgba(14,122,95,0.06)_0%,transparent_60%)] pointer-events-none" />
 
-              {/* Divider on Desktop */}
-              <div className="hidden sm:block w-px h-36 bg-white/20 mx-8 md:mx-12" />
-
-              {/* Kerala Startup Mission */}
-              <div className="flex-1 flex flex-col items-center justify-center gap-5 bg-emerald text-white rounded-2xl p-8 sm:bg-transparent sm:p-0 sm:shadow-none sm:border-0 shadow-lg border border-mint/25 text-center">
-                <div className="h-20 sm:h-28 md:h-36 flex items-center justify-center">
-                  <Image
-                    src="/logos/kerala-startup-mission-logo (1).png"
-                    alt="Recognized by Kerala Start-up Mission"
-                    width={400}
-                    height={140}
-                    className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-                <span className="text-sm sm:text-base font-semibold tracking-wider uppercase text-white/95 leading-snug">
-                  Recognized by Kerala Start-up Mission
-                </span>
-              </div>
-            </div>
+      <Container className="relative z-10 max-w-[1280px] w-full px-6 flex flex-col items-center text-center">
+        
+        <FadeUp delay={0.1}>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e7f9f1] border border-[#a6e8cd]/50 mb-8">
+            <span className="w-2 h-2 rounded-full bg-[#0e7a5f]" />
+            <span className="text-[#0e7a5f] text-[11px] sm:text-[13px] font-semibold tracking-wide uppercase">
+              ABOUT AMIGOSIA
+            </span>
           </div>
         </FadeUp>
+
+        <FadeUp delay={0.2} className="w-full max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-[64px] lg:text-[72px] font-heading font-bold text-ink leading-[1.05] tracking-tight mb-8">
+            Building Technology<br className="hidden sm:block" /> That Creates Impact.
+          </h1>
+        </FadeUp>
+
+        <FadeUp delay={0.3} className="w-full max-w-3xl mx-auto">
+          <p className="text-[18px] md:text-[20px] lg:text-[22px] text-[#52616b] leading-[1.6] mb-16">
+            We design and build scalable digital platforms that help businesses, governments, and communities move confidently into the digital future.
+          </p>
+        </FadeUp>
+
+        {/* Company Highlights */}
+        <FadeUp delay={0.4} className="w-full max-w-[800px] mx-auto mt-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-4 pt-10 border-t border-[#a6e8cd]/40">
+            
+            <div className="flex flex-col items-center flex-1">
+              <span className="text-[#0e7a5f] text-[11px] font-bold tracking-[0.25em] mb-2 opacity-90 uppercase">01</span>
+              <span className="text-ink font-bold text-[19px] md:text-[21px] mb-1">Established</span>
+              <span className="text-[#52616b] text-[15px] md:text-[16px] font-medium">2022</span>
+            </div>
+
+            <div className="hidden md:block w-px h-[60px] bg-[#a6e8cd]/40" />
+
+            <div className="flex flex-col items-center flex-1">
+              <span className="text-[#0e7a5f] text-[11px] font-bold tracking-[0.25em] mb-2 opacity-90 uppercase">02</span>
+              <span className="text-ink font-bold text-[19px] md:text-[21px] mb-1">KSUM</span>
+              <span className="text-[#52616b] text-[15px] md:text-[16px] font-medium">Incubated</span>
+            </div>
+
+            <div className="hidden md:block w-px h-[60px] bg-[#a6e8cd]/40" />
+
+            <div className="flex flex-col items-center flex-1">
+              <span className="text-[#0e7a5f] text-[11px] font-bold tracking-[0.25em] mb-2 opacity-90 uppercase">03</span>
+              <span className="text-ink font-bold text-[19px] md:text-[21px] mb-1">Global</span>
+              <span className="text-[#52616b] text-[15px] md:text-[16px] font-medium">Technology Partner</span>
+            </div>
+
+          </div>
+        </FadeUp>
+
       </Container>
-    </Section>
+    </div>
   );
 }
-

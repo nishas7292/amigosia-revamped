@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/motion/fade-up";
@@ -11,6 +13,7 @@ import pocketmartIcon from "@/public/logos/pocket mart.webp";
 import digicouponLogo from "@/public/logos/digicoupon.png";
 import cloudKitchenIcon from "@/public/logos/cloud kitchen platform.png";
 import Image, { StaticImageData } from "next/image";
+import { motion } from "framer-motion";
 
 interface ProductItem {
   title: string;
@@ -85,19 +88,38 @@ export function AIProducts() {
         </FadeUp>
 
         <div className="flex flex-col gap-24 md:gap-32 mb-16 md:mb-24">
-          {/* DeepLens */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <FadeUp delay={0.1} className="order-2 lg:order-1">
-              <h3 className="text-3xl md:text-[34px] font-heading font-semibold text-ink mb-2">DeepLens</h3>
-              <p className="text-emerald text-lg font-medium mb-6">
-                AI-Powered Code Intelligence & Change Impact Analysis
-              </p>
-              <p className="text-body text-base sm:text-lg mb-8 leading-relaxed">
-                DeepLens enables engineering teams to understand the real impact of every code change before deployment. By combining source-code graph analysis with Large Language Models, DeepLens identifies dependencies, predicts risks, and accelerates software delivery with confidence.
-              </p>
-              <div className="mb-8">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-muted mb-4">Highlights</h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* DeepLens - Featured Product Showcase */}
+          <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 lg:px-16 pt-[120px] pb-[120px] mb-16 md:mb-24">
+            <div className="grid grid-cols-1 lg:grid-cols-[42%_58%] gap-[64px] items-center">
+              
+              {/* Left Column */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="w-full flex flex-col items-start text-left z-10"
+              >
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e7f9f1] border border-[#a6e8cd]/50 mb-6">
+                  <span className="w-2 h-2 rounded-full bg-[#0e7a5f]" />
+                  <span className="text-[#0e7a5f] text-[11px] sm:text-[13px] font-semibold tracking-wide uppercase">
+                    FEATURED PRODUCT
+                  </span>
+                </div>
+                
+                <h3 className="text-5xl sm:text-[56px] lg:text-[60px] font-heading font-bold text-ink mb-4 leading-[1.05] tracking-tight">
+                  DeepLens
+                </h3>
+                
+                <p className="text-[#0e7a5f] text-[18px] sm:text-[20px] lg:text-[22px] font-medium mb-8 leading-snug">
+                  AI-Powered Code Intelligence & Change Impact Analysis
+                </p>
+                
+                <p className="text-[17px] sm:text-[18px] text-[#52616b] leading-[1.6] max-w-[560px] mb-8">
+                  Understand the impact of code changes before they reach production. DeepLens combines source-code graph analysis with Large Language Models to identify dependencies, predict risks, and accelerate software delivery.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3.5 max-w-[560px] mb-10">
                   {[
                     "AI-powered impact analysis",
                     "Code dependency visualization",
@@ -105,68 +127,116 @@ export function AIProducts() {
                     "LLM-assisted engineering insights",
                     "Enterprise-ready architecture",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-5 h-5 text-emerald shrink-0 mt-0.5" />
-                      <span className="text-body text-sm sm:text-[15px] font-medium">{item}</span>
-                    </li>
+                    <div key={i} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-[18px] h-[18px] text-[#0e7a5f] shrink-0 mt-0.5" />
+                      <span className="text-[#52616b] text-[14px] sm:text-[15px] font-medium leading-tight">{item}</span>
+                    </div>
                   ))}
-                </ul>
-              </div>
-              <Button asChild size="lg" className="bg-emerald text-white hover:bg-emerald-dark rounded-full px-8 shadow-sm">
-                <Link href="/products">Explore DeepLens &rarr;</Link>
-              </Button>
-            </FadeUp>
-            <FadeUp delay={0.2} className="relative h-[380px] lg:h-[480px] w-full order-1 lg:order-2 group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
-              <SplineScene
-                label="SPLINE_DEEPLENS_TEASER"
-                poster="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
-                className="w-full h-full border-0 rounded-none bg-transparent"
-                posterClassName="transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
-            </FadeUp>
+                </div>
+
+                <Button asChild size="lg" className="bg-[#0e7a5f] hover:bg-[#0b634c] text-white rounded-full px-8 h-12 md:h-14 text-base font-semibold shadow-sm hover:shadow hover:-translate-y-0.5 transition-all duration-300">
+                  <Link href="/products">Explore DeepLens &rarr;</Link>
+                </Button>
+              </motion.div>
+
+              {/* Right Column */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="relative w-full z-10 flex justify-center lg:justify-end mt-10 lg:mt-0"
+              >
+                {/* Subtle Amigosia emerald/mint glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[radial-gradient(circle_at_center,rgba(14,122,95,0.12)_0%,transparent_50%)] pointer-events-none -z-10" />
+
+                <div className="relative w-full max-w-[680px]">
+                  <Image
+                    src="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
+                    alt="DeepLens AI Code Intelligence"
+                    width={1280}
+                    height={1024}
+                    className="w-full h-auto rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    priority
+                  />
+                </div>
+              </motion.div>
+
+            </div>
           </div>
 
-          {/* DeployMind */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <FadeUp delay={0.1} className="relative h-[380px] lg:h-[480px] w-full group rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500">
-              <Image
-                src="/products/deploymind-image.jpg"
-                alt="DeployMind"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-emerald/30 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
-            </FadeUp>
-            <FadeUp delay={0.2}>
-              <h3 className="text-3xl md:text-[34px] font-heading font-semibold text-ink mb-2">DeployMind</h3>
-              <p className="text-emerald text-lg font-medium mb-6">
-                Intelligent Cloud Deployment Automation
-              </p>
-              <p className="text-body text-base sm:text-lg mb-8 leading-relaxed">
-                DeployMind transforms Git repositories into production-ready cloud deployments with minimal configuration. It automates infrastructure provisioning, CI/CD pipelines, container deployment, and cloud orchestration.
-              </p>
-              <div className="mb-8">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-muted mb-4">Highlights</h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* Deployment - Featured Product Showcase */}
+          <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 lg:px-16">
+            <div className="grid grid-cols-1 lg:grid-cols-[43%_57%] gap-[64px] items-center">
+              
+              {/* Left Column */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="w-full flex flex-col items-start text-left z-10"
+              >
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e7f9f1] border border-[#a6e8cd]/50 mb-6">
+                  <span className="w-2 h-2 rounded-full bg-[#0e7a5f]" />
+                  <span className="text-[#0e7a5f] text-[11px] sm:text-[13px] font-semibold tracking-wide uppercase">
+                    DEPLOYMENT
+                  </span>
+                </div>
+                
+                <h3 className="text-5xl sm:text-[56px] lg:text-[60px] font-heading font-bold text-ink mb-6 leading-[1.05] tracking-tight">
+                  Deployment & Cloud Infrastructure
+                </h3>
+                
+                <p className="text-[17px] sm:text-[18px] text-[#52616b] leading-[1.6] max-w-[560px] mb-10">
+                  Deploying secure, scalable, and reliable digital solutions with modern cloud infrastructure, DevOps practices, and production-ready architectures.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3.5 max-w-[560px] mb-10">
                   {[
-                    "One-click deployments",
-                    "Automated CI/CD",
-                    "Docker & Kubernetes support",
-                    "Secure secrets management",
-                    "Multi-cloud architecture",
+                    "Cloud-native deployment",
+                    "Secure API infrastructure",
+                    "CI/CD automation",
+                    "Scalable backend architecture",
+                    "Monitoring & reliability",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-5 h-5 text-emerald shrink-0 mt-0.5" />
-                      <span className="text-body text-sm sm:text-[15px] font-medium">{item}</span>
-                    </li>
+                    <div key={i} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-[18px] h-[18px] text-[#0e7a5f] shrink-0 mt-0.5" />
+                      <span className="text-[#52616b] text-[14px] sm:text-[15px] font-medium leading-tight">{item}</span>
+                    </div>
                   ))}
-                </ul>
-              </div>
-              <Button asChild size="lg" className="bg-emerald text-white hover:bg-emerald-dark rounded-full px-8 shadow-sm">
-                <Link href="/products">Explore DeployMind &rarr;</Link>
-              </Button>
-            </FadeUp>
+                </div>
+
+                <Button asChild size="lg" className="bg-[#0e7a5f] hover:bg-[#0b634c] text-white rounded-full px-8 h-12 md:h-14 text-base font-semibold shadow-sm hover:shadow hover:-translate-y-0.5 transition-all duration-300">
+                  <Link href="/products">Explore Our Technology &rarr;</Link>
+                </Button>
+              </motion.div>
+
+              {/* Right Column */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="relative w-full z-10 flex justify-center lg:justify-end mt-10 lg:mt-0"
+              >
+                {/* Subtle Amigosia emerald/mint glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[radial-gradient(circle_at_center,rgba(14,122,95,0.12)_0%,transparent_50%)] pointer-events-none -z-10" />
+
+                <div className="relative w-full max-w-[680px]">
+                  <Image
+                    src="/products/deploymind-image.jpg"
+                    alt="Deployment & Cloud Infrastructure"
+                    width={1280}
+                    height={1024}
+                    className="w-full h-auto rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+                    sizes="(max-width: 1024px) 100vw, 57vw"
+                  />
+                </div>
+              </motion.div>
+
+            </div>
           </div>
         </div>
 
