@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
     const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: process.env.COMPANY_EMAIL!,
+      to: process.env.CONTACT_TO || process.env.COMPANY_EMAIL || "nidheeshvrealme@gmail.com",
       subject: "New Career Application",
       html: `
         <h2>New Job Application</h2>

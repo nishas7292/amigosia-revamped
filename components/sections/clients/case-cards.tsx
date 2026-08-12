@@ -68,9 +68,7 @@ export function CaseCards() {
           {clients.map((client, i) => (
             <StaggerItem 
               key={i} 
-              className={`bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-border hover:shadow-[var(--shadow-hover)] transition-all flex flex-col justify-between hover:-translate-y-1 ${
-                i === clients.length - 1 && clients.length % 2 !== 0 ? "md:col-span-2 md:max-w-3xl md:mx-auto w-full" : ""
-              }`}
+              className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-border hover:shadow-[var(--shadow-hover)] transition-all flex flex-col justify-between hover:-translate-y-1"
             >
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { submitContactForm } from "@/app/actions/contact";
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
@@ -13,15 +12,47 @@ export function ContactLayout() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
-  async function handleSubmit(formData: FormData) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     setStatus("loading");
-    const result = await submitContactForm(formData);
     
-    if (result.success) {
-      setStatus("success");
-    } else {
+    const formData = new FormData(e.currentTarget);
+    const botField = formData.get("bot_field");
+    
+    if (botField) {
       setStatus("error");
-      setErrorMsg(result.error || "Something went wrong.");
+      setErrorMsg("Spam detected.");
+      return;
+    }
+
+    const name = formData.get("name")?.toString().trim() || "";
+    const email = formData.get("email")?.toString().trim() || "";
+    const company = formData.get("company")?.toString().trim() || "";
+    const message = formData.get("message")?.toString().trim() || "";
+
+    if (!name || !email || !message) {
+      setStatus("error");
+      setErrorMsg("Please fill in all required fields.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, company, message }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+      setErrorMsg("Something went wrong. Please try again.");
     }
   }
 
@@ -77,13 +108,13 @@ export function ContactLayout() {
                 <div className="flex flex-col items-center justify-center h-full min-h-[400px] text-center space-y-4">
                   <CheckCircle2 className="w-16 h-16 text-emerald mb-2" />
                   <h3 className="text-2xl font-heading font-semibold text-ink">Message Sent!</h3>
-                  <p className="text-body text-lg">Thank you for reaching out. We'll get back to you shortly.</p>
+                  <p className="text-body text-lg">Your message has been sent successfully. We'll get back to you soon.</p>
                   <Button onClick={() => setStatus("idle")} variant="outline" className="mt-4 rounded-full border-2 text-emerald hover:bg-emerald hover:text-white">
                     Send another message
                   </Button>
                 </div>
               ) : (
-                <form action={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {status === "error" && (
                     <div className="bg-destructive/10 text-destructive p-4 rounded-xl flex items-center gap-3">
                       <AlertCircle className="w-5 h-5 shrink-0" />
