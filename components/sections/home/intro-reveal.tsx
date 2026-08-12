@@ -1,86 +1,81 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Container, Section } from "@/components/layout/container";
 import { FadeUp } from "@/components/motion/fade-up";
 
 export function IntroReveal() {
   return (
-    <Section className="py-20 md:py-32 border-b border-border bg-surface">
-      <Container>
-        {/* Main Section Header */}
-        <FadeUp className="text-center mb-8">
-          <span className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-emerald bg-mint-soft px-4 py-1.5 rounded-full border border-mint/40 inline-block mb-4">
-            About Amigosia
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-semibold text-ink tracking-tight max-w-3xl mx-auto leading-tight">
-            Building Technology That Matters
-          </h2>
-        </FadeUp>
+    <Section className="py-[110px] md:py-[140px] border-b border-border bg-white relative overflow-hidden z-0">
+      
+      {/* Very Subtle Emerald Glow on Right */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[50%] h-[80%] bg-[radial-gradient(100%_100%_at_100%_50%,rgba(14,122,95,0.03)_0%,rgba(166,232,205,0.01)_50%,transparent_100%)] pointer-events-none -z-10" />
 
-        {/* Narrative */}
-        <div className="max-w-4xl mx-auto text-center space-y-6 mb-12">
-          <FadeUp delay={0.05}>
-            <p className="text-lg md:text-2xl text-body font-medium leading-relaxed">
-              Amigosia Private Limited is an innovation-driven software company established in 2022 and incubated at the Kerala Startup Mission (KSUM). We build scalable digital products, AI-powered solutions, enterprise applications, and public-sector platforms that help organizations transform digitally and grow sustainably.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-base md:text-xl text-body/90 leading-relaxed max-w-3xl mx-auto">
-              Trusted by government organizations, startups, and international businesses, we combine engineering excellence, modern technologies, and user-centric design to deliver secure, scalable, and impactful software solutions across India and global markets.
-            </p>
-          </FadeUp>
-        </div>
-
-        {/* Recognized By */}
-        <FadeUp delay={0.15} className="w-full max-w-5xl mx-auto mb-16">
-          <div className="w-full flex flex-col gap-6 sm:flex-row sm:gap-0 sm:bg-emerald sm:text-white sm:rounded-3xl sm:p-10 sm:px-14 sm:py-12 sm:shadow-xl sm:border sm:border-mint/30 sm:items-center sm:justify-around">
-            {/* Startup India */}
-            <div className="flex-1 flex flex-col items-center justify-center gap-5 bg-emerald text-white rounded-2xl p-8 sm:bg-transparent sm:p-0 sm:shadow-none sm:border-0 shadow-lg border border-mint/25 text-center">
-              <div className="h-20 sm:h-28 md:h-36 flex items-center justify-center">
-                <Image
-                  src="/logos/startu india logo (1).png"
-                  alt="Recognized by Start-up India"
-                  width={400}
-                  height={140}
-                  className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
-                />
+      <Container className="max-w-6xl mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
+          
+          {/* Left Column (40%) */}
+          <div className="relative w-full lg:w-[35%] xl:w-[30%] flex flex-col items-start text-left shrink-0">
+            <FadeUp>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e7f9f1] border border-[#a6e8cd]/50 mb-5">
+                <span className="w-2 h-2 rounded-full bg-[#0e7a5f]" />
+                <span className="text-[#0e7a5f] text-[11px] sm:text-[13px] font-semibold tracking-wide uppercase">
+                  ABOUT AMIGOSIA
+                </span>
               </div>
-              <span className="text-sm sm:text-base font-semibold tracking-wider uppercase text-white/95 leading-snug">
-                Recognized by Start-up India
-              </span>
-            </div>
+            </FadeUp>
 
-            {/* Divider on Desktop */}
-            <div className="hidden sm:block w-px h-36 bg-white/20 mx-8 md:mx-12" />
+            <FadeUp delay={0.1}>
+              <h3 className="text-2xl sm:text-[26px] font-semibold text-ink mb-4">
+                Who We Are
+              </h3>
+              <p className="text-[17px] text-[#52616b] font-medium leading-relaxed mb-10 max-w-[280px]">
+                Building digital solutions that create meaningful impact.
+              </p>
+            </FadeUp>
 
-            {/* Kerala Startup Mission */}
-            <div className="flex-1 flex flex-col items-center justify-center gap-5 bg-emerald text-white rounded-2xl p-8 sm:bg-transparent sm:p-0 sm:shadow-none sm:border-0 shadow-lg border border-mint/25 text-center">
-              <div className="h-20 sm:h-28 md:h-36 flex items-center justify-center">
-                <Image
-                  src="/logos/kerala-startup-mission-logo (1).png"
-                  alt="Recognized by Kerala Start-up Mission"
-                  width={400}
-                  height={140}
-                  className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
-                />
+            <FadeUp delay={0.2} className="flex flex-col gap-2.5 relative z-10">
+              <div className="flex items-center gap-3 text-sm text-[#52616b]/80 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#a6e8cd]" />
+                <span>Established 2022</span>
               </div>
-              <span className="text-sm sm:text-base font-semibold tracking-wider uppercase text-white/95 leading-snug">
-                Recognized by Kerala Start-up Mission
-              </span>
+              <div className="flex items-center gap-3 text-sm text-[#52616b]/80 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#a6e8cd]" />
+                <span>KSUM Incubated</span>
+              </div>
+            </FadeUp>
+
+            {/* Subtle 'A' Watermark underneath credibility */}
+            <div className="absolute -bottom-24 -left-6 pointer-events-none select-none opacity-[0.04] text-[#0e7a5f] z-0 hidden sm:block">
+              <span className="text-[260px] font-bold leading-none font-heading tracking-tighter">A</span>
             </div>
           </div>
-        </FadeUp>
 
-        {/* CTAs */}
-        <FadeUp delay={0.2} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg" className="bg-emerald text-white hover:bg-emerald-dark rounded-full px-8 h-12 shadow-sm hover:shadow-md transition-all text-base">
-            <Link href="/products">Explore Our Products &rarr;</Link>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="border-emerald text-emerald hover:bg-emerald/5 rounded-full px-8 h-12 text-base">
-            <Link href="/contact">Talk to Us</Link>
-          </Button>
-        </FadeUp>
+          {/* Visual Accent */}
+          <div className="hidden lg:block w-[1px] bg-gradient-to-b from-transparent via-[#a6e8cd]/30 to-transparent self-stretch mx-2" />
+          
+          {/* Mobile Visual Accent */}
+          <div className="block lg:hidden w-12 h-[1px] bg-[#a6e8cd]/30 my-4" />
+
+          {/* Right Column (60%) */}
+          <div className="w-full lg:w-[60%] xl:w-[65%] flex flex-col text-left">
+            <FadeUp delay={0.1}>
+              <h2 className="text-4xl sm:text-[46px] lg:text-[50px] font-heading font-bold text-ink leading-[1.08] tracking-tight mb-10 text-balance">
+                Technology Built for Real-World Impact.
+              </h2>
+            </FadeUp>
+
+            <FadeUp delay={0.2}>
+              <p className="text-[17px] sm:text-[18px] text-[#52616b] leading-[1.7] mb-8 max-w-[650px]">
+                Amigosia Private Limited is an innovation-driven software company established in 2022 and incubated at the Kerala Startup Mission (KSUM). We build scalable digital products, AI-powered solutions, enterprise applications, and public-sector platforms that help organizations transform digitally and grow sustainably.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.3}>
+              <p className="text-[17px] sm:text-[18px] text-[#52616b] leading-[1.7] max-w-[650px]">
+                Trusted by government organizations, startups, and international businesses, we combine engineering excellence, modern technologies, and user-centric design to deliver secure, scalable, and impactful software solutions across India and global markets.
+              </p>
+            </FadeUp>
+          </div>
+
+        </div>
       </Container>
     </Section>
   );
