@@ -11,17 +11,82 @@ export function DeepLensBlock() {
   return (
     <Section>
       <Container>
-        {/* Intro */}
-        <FadeUp className="mb-24 md:mb-32">
-          <h2 className="text-4xl md:text-6xl font-heading font-semibold text-ink mb-4">DeepLens</h2>
-          <p className="text-xl md:text-2xl text-emerald font-medium mb-10">AI-Powered Change Impact Analysis</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg text-body max-w-5xl">
+        {/* Hero Section */}
+        <div className="min-h-[75vh] md:min-h-[85vh] flex items-center pt-8 pb-16 md:pt-12 md:pb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 lg:gap-16 items-center w-full">
+            {/* Left Column */}
+            <FadeUp className="flex flex-col items-start text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint/20 border border-mint/40 text-emerald text-xs tracking-wider font-bold mb-8 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald"></span>
+                AI-POWERED PRODUCT
+              </div>
+              
+              <h1 className="text-5xl md:text-7xl font-heading font-bold text-ink mb-6 tracking-tight">
+                DeepLens
+              </h1>
+              
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-ink mb-6 leading-tight">
+                Understand the Impact of Every Code Change.
+              </h2>
+              
+              <p className="text-lg md:text-xl text-body mb-3 leading-relaxed max-w-xl">
+                DeepLens analyzes your codebase, maps hidden dependencies, and predicts the impact of code changes before they reach production.
+              </p>
+              
+              <p className="text-base font-medium text-body/80 mb-10 max-w-xl">
+                AI-powered change impact analysis for modern engineering teams.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-14 w-full sm:w-auto">
+                <Button asChild size="lg" className="bg-emerald text-white hover:bg-emerald-dark rounded-full px-8 h-14 text-base w-full sm:w-auto shadow-md hover:shadow-lg transition-all">
+                  <Link href="#how-it-works">Explore DeepLens &rarr;</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-border text-ink hover:bg-surface rounded-full px-8 h-14 text-base w-full sm:w-auto shadow-sm hover:shadow-md transition-all">
+                  <Link href="/contact">Talk to Our Team</Link>
+                </Button>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-ink/70 font-medium">
+                <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald" /> AI-Powered Analysis</span>
+                <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald" /> Dependency Intelligence</span>
+                <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald" /> Developer-Focused</span>
+              </div>
+            </FadeUp>
+
+            {/* Right Column */}
+            <FadeUp delay={0.2} className="relative w-full h-full min-h-[350px] lg:min-h-[500px] flex items-center justify-center mt-8 lg:mt-0">
+              {/* Subtle decorative background */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,122,95,0.06)_0%,transparent_60%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(166,232,205,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(166,232,205,0.15)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_60%)] opacity-50 pointer-events-none" />
+              
+              {/* Product Visual */}
+              <div className="relative w-full aspect-video md:aspect-[16/10] rounded-2xl overflow-hidden border border-mint/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] lg:shadow-[0_20px_50px_rgba(14,122,95,0.12)] ring-1 ring-black/5 bg-surface z-10">
+                <Image
+                  src="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
+                  alt="DeepLens Interface"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+
+        {/* Problem & Solution Context */}
+        <FadeUp className="mb-24 md:mb-32 pt-12 border-t border-border/50">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg text-body max-w-5xl mx-auto">
             <div>
-              <p className="font-semibold text-ink mb-3">The problem</p>
+              <p className="font-semibold text-ink mb-3 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald"></span> The problem
+              </p>
               <p className="leading-relaxed">Bugs caught in production cost roughly 10x more than bugs caught in development. Modern codebases carry thousands of implicit dependencies that are impossible to trace by hand — one change in a utility file can silently break distant, unrelated features.</p>
             </div>
             <div>
-              <p className="font-semibold text-ink mb-3">The solution</p>
+              <p className="font-semibold text-ink mb-3 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald"></span> The solution
+              </p>
               <p className="leading-relaxed">DeepLens is a stateful analysis engine that maps your entire codebase architecture and predicts the blast radius of any change before it reaches production.</p>
             </div>
           </div>
@@ -36,19 +101,6 @@ export function DeepLensBlock() {
             </p>
           </FadeUp>
 
-          {/* Product Image Preview */}
-          <FadeUp className="mb-12">
-            <div className="relative h-[280px] sm:h-[380px] md:h-[450px] w-full rounded-3xl overflow-hidden border border-mint/50 shadow-soft hover:shadow-hover transition-shadow duration-500 group">
-              <Image
-                src="/products/deeplens-ai-powered-change-impact-analysis--know-w.jpg"
-                alt="DeepLens Analysis"
-                fill
-                sizes="(max-width: 1200px) 100vw, 1200px"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-emerald/20 mix-blend-color transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
-            </div>
-          </FadeUp>
 
           {/* 3 Steps in Flex Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
