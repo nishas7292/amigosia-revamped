@@ -2,7 +2,7 @@ import { Container, Section } from "@/components/layout/container";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
 import Image, { StaticImageData } from "next/image";
 import kudumbashreeLogo from "@/public/partner_logos/logo-kudumbashree.png";
-import kldbLogo from "@/public/partner_logos/logo-kldb.png";
+import kldbLogo from "@/public/logos/KLDB  LOGO PNG (1).png";
 import logizenLogo from "@/public/logos/logizen_logo.png";
 import kbnholdingsLogo from "@/public/logos/kbn.png";
 import digicouponLogo from "@/public/logos/digicoupon.png";
@@ -31,7 +31,6 @@ const clients: ClientCardItem[] = [
     relationship:
       "Developing and maintaining LAPTOP (Livestock And Pets Trading Online Platform), enabling farmers, breeders, and buyers to connect through a secure and efficient digital marketplace across Kerala.",
     logo: kldbLogo,
-    className: "brightness-0 opacity-80",
     tag: "Agritech & Marketplace",
   },
   {
@@ -80,11 +79,11 @@ export function CaseCards() {
                 </div>
 
                 {client.logo && (
-                  <div className="h-20 sm:h-24 mb-8 flex items-center justify-center w-full">
+                  <div className="h-28 sm:h-36 md:h-40 mb-8 flex items-center justify-center w-full bg-surface-alt/50 rounded-2xl p-4 border border-border/40">
                     <Image
                       src={client.logo}
                       alt={client.name}
-                      className={`h-16 sm:h-20 max-w-[260px] w-auto object-contain transition-transform duration-300 hover:scale-105 ${client.className || ""}`}
+                      className={`h-20 sm:h-28 md:h-32 max-w-[320px] sm:max-w-[360px] w-auto object-contain transition-transform duration-300 hover:scale-105 ${client.className || ""}`}
                     />
                   </div>
                 )}

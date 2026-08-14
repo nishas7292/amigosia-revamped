@@ -6,7 +6,7 @@ import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
 import { LogoLoop, type LogoItem } from "@/components/reactbits/logo-loop";
 import Image from "next/image";
 import kudumbashreeLogo from "@/public/partner_logos/logo-kudumbashree.png";
-import kldbLogo from "@/public/partner_logos/logo-kldb.png";
+import kldbLogo from "@/public/logos/KLDB  LOGO PNG (1).png";
 import logizenLogo from "@/public/logos/logizen_logo.png";
 import kbnholdingsLogo from "@/public/logos/kbn.png";
 import digicouponLogo from "@/public/logos/digicoupon.png";
@@ -23,7 +23,6 @@ const clients = [
     role: "Digital Platform Development",
     relationship: "Developing and maintaining LAPTOP (Livestock And Pets Trading Online Platform), enabling farmers, breeders, and buyers to connect through a secure and efficient digital marketplace across Kerala.",
     logo: kldbLogo,
-    className: "brightness-0 opacity-80",
   },
   {
     name: "National Resource Organisation (NRO)",
@@ -60,28 +59,28 @@ const clientLogos: ClientLogoItem[] = [
     name: "Kudumbashree Mission",
     src: "/partner_logos/logo-kudumbashree.png",
     alt: "Kudumbashree Mission",
-    height: 44,
+    height: 64,
     className: "brightness-0 invert opacity-85 hover:opacity-100",
   },
   {
     name: "Kerala Livestock Development Board",
-    src: "/partner_logos/logo-kldb.png",
+    src: "/logos/KLDB  LOGO PNG (1).png",
     alt: "Kerala Livestock Development Board",
-    height: 40,
+    height: 60,
     className: "opacity-85 hover:opacity-100",
   },
   {
     name: "Logizen LLC",
     src: "/partner_logos/logo-logizen.png",
     alt: "Logizen LLC",
-    height: 24,
+    height: 38,
     className: "opacity-85 hover:opacity-100",
   },
   {
     name: "KBN Holdings",
     src: "/partner_logos/logo-kbnholding.png",
     alt: "KBN Holdings",
-    height: 38,
+    height: 56,
     className: "opacity-85 hover:opacity-100",
   },
 ];
@@ -103,7 +102,7 @@ export function ClientsImpact() {
         </FadeUp>
 
         <FadeUp delay={0.1} className="mb-10 md:mb-20">
-          <div className="relative h-24 md:h-32 bg-ink rounded-3xl flex items-center shadow-soft border border-mint/10 overflow-hidden">
+          <div className="relative h-28 md:h-36 bg-ink rounded-3xl flex items-center shadow-soft border border-mint/10 overflow-hidden">
             <LogoLoop
               logos={clientLogos}
               speed={55}
@@ -127,8 +126,8 @@ export function ClientsImpact() {
             >
               <div>
                 {client.logo && (
-                  <div className="h-12 mb-6 flex items-center">
-                    <Image src={client.logo} alt={client.name} className={`max-h-full w-auto object-contain ${client.className || ""}`} />
+                  <div className="h-28 sm:h-36 md:h-40 mb-8 flex items-center justify-center w-full bg-surface-alt/50 rounded-2xl p-4 border border-border/40">
+                    <Image src={client.logo} alt={client.name} className="h-20 sm:h-28 md:h-32 max-w-[320px] sm:max-w-[360px] w-auto object-contain transition-transform duration-300 hover:scale-105" />
                   </div>
                 )}
                 <span className="inline-block text-xs font-semibold text-emerald uppercase tracking-wider mb-2">

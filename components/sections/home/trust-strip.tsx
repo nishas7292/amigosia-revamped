@@ -37,10 +37,10 @@ const clientLogos: TrustLogoItem[] = [
   },
   {
     name: "Kerala Livestock Development Board",
-    src: "/partner_logos/logo-kldb.png",
+    src: "/logos/KLDB  LOGO PNG (1).png",
     alt: "Kerala Livestock Development Board",
     height: 38,
-    className: "brightness-0 opacity-70 hover:opacity-100",
+    className: "opacity-80 hover:opacity-100",
   },
 ];
 

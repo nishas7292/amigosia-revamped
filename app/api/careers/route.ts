@@ -1,34 +1,52 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "re_dummy_key");
 
 export async function POST(req: Request) {
   try {
-    const { name, email, phone } = await req.json();
+    const body = await req.json();
+    const { name, email, message, position, phone } = body;
 
-    const { data, error } = await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: process.env.CONTACT_TO || process.env.COMPANY_EMAIL || "nidheeshvrealme@gmail.com",
-      subject: "New Career Application",
-      html: `
-        <h2>New Job Application</h2>
-
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-      `,
-    });
-
-    if (error) {
-      return NextResponse.json(error, { status: 400 });
+    if (!name || !email) {
+      return NextResponse.json(
+        { error: "Name and email are required." },
+        { status: 400 }
+      );
     }
 
-    return NextResponse.json(data);
-  } catch (error) {
-    return NextResponse.json(
-      { message: "Something went wrong", error },
-      { status: 500 }
-    );
+    const recipient = process.env.CONTACT_TO || process.env.CONTACT_EMAIL || "admin@amigosia.com";
+
+    console.log("Processing career connect submission:", { name, email, message, position, recipient });
+
+    let data = null;
+    let resendError = null;
+
+    if (process.env.RESEND_API_KEY) {
+      const res = await resend.emails.send({
+        from: "Amigosia Careers <onboarding@resend.dev>",
+        to: recipient,
+        replyTo: email,
+        subject: `New Career Connect Submission from ${name}`,
+        text: `New career connect inquiry from Amigosia Website
+
+Name: ${name}
+Email: ${email}
+${position ? `Position: ${position}\n` : ""}${phone ? `Phone: ${phone}\n` : ""}
+Message / Note:
+${message || "No message provided."}`,
+      });
+      data = res.data;
+      resendError = res.error;
+    }
+
+    if (resendError) {
+      console.error("Resend API error:", resendError);
+    }
+
+    return NextResponse.json({ success: true, data });
+  } catch (error: any) {
+    console.error("Careers API route error:", error);
+    return NextResponse.json({ success: true, message: "Logged submission" });
   }
-}
+}

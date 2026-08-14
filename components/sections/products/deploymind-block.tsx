@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { GitBranch, Server, Network, Cloud, Shield, Box, Workflow } from "lucide-react";
@@ -9,7 +7,7 @@ import Image from "next/image";
 
 export function DeployMindBlock() {
   return (
-    <Section className="bg-surface-alt border-t border-border pt-16 md:pt-24 pb-0">
+    <Section className="bg-surface-alt border-t border-border pt-16 md:pt-24 pb-16 md:pb-24">
       <Container>
         {/* Product Intro */}
         <FadeUp className="mb-16 md:mb-24 flex flex-col items-center text-center">
@@ -211,7 +209,7 @@ export function DeployMindBlock() {
         </div>
 
         {/* Key Capabilities */}
-        <FadeUp className="mb-24 md:mb-32 max-w-5xl mx-auto text-center border-t border-border pt-16 md:pt-20">
+        <FadeUp className="max-w-5xl mx-auto text-center border-t border-border pt-16 md:pt-20">
           <h3 className="text-sm font-bold text-ink/50 uppercase tracking-widest mb-12">Built for modern deployment</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="flex flex-col items-center text-center px-2">
@@ -230,22 +228,6 @@ export function DeployMindBlock() {
               <Shield className="w-6 h-6 text-emerald mb-4" />
               <p className="text-sm font-medium text-ink">Secure Deployment Workflows</p>
             </div>
-          </div>
-        </FadeUp>
-
-        {/* CTA */}
-        <FadeUp className="text-center py-16 px-6 border border-border bg-white rounded-3xl max-w-4xl mx-auto mb-24 md:mb-32 shadow-sm">
-          <h3 className="text-3xl md:text-4xl font-heading font-semibold text-ink mb-4">Ready to simplify deployment?</h3>
-          <p className="text-lg text-body mb-8 max-w-xl mx-auto">
-            Move from code to production with a streamlined cloud deployment workflow.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button asChild size="lg" className="bg-emerald text-white hover:bg-emerald-dark rounded-full px-8 h-12 text-base shadow-sm w-full sm:w-auto">
-              <Link href="/contact">Explore DeployMind &rarr;</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-border text-ink hover:bg-surface-alt rounded-full px-8 h-12 text-base w-full sm:w-auto">
-              <Link href="/contact">Talk to Our Team</Link>
-            </Button>
           </div>
         </FadeUp>
       </Container>

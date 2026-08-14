@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { CheckCircle2 } from "lucide-react";
@@ -36,15 +34,6 @@ export function DeepLensBlock() {
               <p className="text-base font-medium text-body/80 mb-10 max-w-xl">
                 AI-powered change impact analysis for modern engineering teams.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-14 w-full sm:w-auto">
-                <Button asChild size="lg" className="bg-emerald text-white hover:bg-emerald-dark rounded-full px-8 h-14 text-base w-full sm:w-auto shadow-md hover:shadow-lg transition-all">
-                  <Link href="#how-it-works">Explore DeepLens &rarr;</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="border-border text-ink hover:bg-surface rounded-full px-8 h-14 text-base w-full sm:w-auto shadow-sm hover:shadow-md transition-all">
-                  <Link href="/contact">Talk to Our Team</Link>
-                </Button>
-              </div>
 
               <div className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-ink/70 font-medium">
                 <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald" /> AI-Powered Analysis</span>
@@ -101,7 +90,6 @@ export function DeepLensBlock() {
             </p>
           </FadeUp>
 
-
           {/* 3 Steps in Flex Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <FadeUp delay={0.1} className="bg-surface border border-border rounded-2xl p-8 shadow-sm hover:shadow-hover hover:border-mint transition-all flex flex-col hover:-translate-y-1">
@@ -123,7 +111,7 @@ export function DeepLensBlock() {
         </div>
 
         {/* Features / Details */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           <FadeUp>
             <h4 className="text-xl md:text-2xl font-heading font-semibold text-ink mb-6">Why DeepLens is different</h4>
             <ul className="space-y-4">
@@ -141,20 +129,6 @@ export function DeepLensBlock() {
             <p className="text-body leading-relaxed">Local LLM integration (Ollama, Llama 3 8B, Mistral 7B) in R&D — enabling on-premise analysis with zero cloud exposure for air-gapped/classified environments.</p>
           </FadeUp>
         </div>
-
-        {/* CTA */}
-        <FadeUp className="text-center p-12 md:p-16 bg-mint-soft rounded-[2rem] border border-border">
-          <h3 className="text-2xl md:text-4xl font-heading font-semibold text-ink mb-8">Try DeepLens in action</h3>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a href="https://deeplens.near2me.app" target="_blank" rel="noopener noreferrer" className="text-emerald text-lg font-medium hover:underline">
-              deeplens.near2me.app
-            </a>
-            <span className="hidden sm:inline text-border">|</span>
-            <Button asChild size="lg" className="bg-emerald text-white hover:bg-emerald-dark rounded-full px-10 h-14 text-lg">
-              <Link href="/contact">Request a Demo</Link>
-            </Button>
-          </div>
-        </FadeUp>
       </Container>
     </Section>
   );
