@@ -6,9 +6,9 @@ import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
 import { LogoLoop, type LogoItem } from "@/components/reactbits/logo-loop";
 import Image from "next/image";
 import kudumbashreeLogo from "@/public/partner_logos/logo-kudumbashree.png";
-import kldbLogo from "@/public/logos/KLDB  LOGO PNG (1).png";
-import logizenLogo from "@/public/logos/logizen_logo.png";
-import kbnholdingsLogo from "@/public/logos/kbn.png";
+import kldbLogo from "@/public/partner_logos/KLDB  LOGO PNG (1).png";
+import logizenLogo from "@/public/partner_logos/logizen_logo.png";
+import kbnholdingsLogo from "@/public/partner_logos/kbn.png";
 import digicouponLogo from "@/public/logos/digicoupon.png";
 
 const clients = [
@@ -60,28 +60,28 @@ const clientLogos: ClientLogoItem[] = [
     src: "/partner_logos/logo-kudumbashree.png",
     alt: "Kudumbashree Mission",
     height: 64,
-    className: "brightness-0 invert opacity-85 hover:opacity-100",
+    className: "opacity-95 hover:opacity-100 object-contain h-16 sm:h-20 md:h-24 w-auto transition-all",
   },
   {
     name: "Kerala Livestock Development Board",
-    src: "/logos/KLDB  LOGO PNG (1).png",
+    src: "/partner_logos/KLDB  LOGO PNG (1).png",
     alt: "Kerala Livestock Development Board",
-    height: 60,
-    className: "opacity-85 hover:opacity-100",
+    height: 64,
+    className: "opacity-95 hover:opacity-100 object-contain h-16 sm:h-20 md:h-24 w-auto transition-all",
   },
   {
     name: "Logizen LLC",
-    src: "/partner_logos/logo-logizen.png",
+    src: "/partner_logos/logizen_logo.png",
     alt: "Logizen LLC",
-    height: 38,
-    className: "opacity-85 hover:opacity-100",
+    height: 52,
+    className: "opacity-95 hover:opacity-100 object-contain h-12 sm:h-16 md:h-18 w-auto transition-all",
   },
   {
     name: "KBN Holdings",
-    src: "/partner_logos/logo-kbnholding.png",
+    src: "/partner_logos/kbn.png",
     alt: "KBN Holdings",
     height: 56,
-    className: "opacity-85 hover:opacity-100",
+    className: "opacity-95 hover:opacity-100 object-contain h-14 sm:h-18 md:h-20 w-auto transition-all",
   },
 ];
 
@@ -102,14 +102,15 @@ export function ClientsImpact() {
         </FadeUp>
 
         <FadeUp delay={0.1} className="mb-10 md:mb-20">
-          <div className="relative h-28 md:h-36 bg-ink rounded-3xl flex items-center shadow-soft border border-mint/10 overflow-hidden">
+          <div className="relative h-32 sm:h-40 md:h-48 bg-white rounded-3xl flex items-center shadow-sm border border-border overflow-hidden px-6">
             <LogoLoop
               logos={clientLogos}
-              speed={55}
+              speed={45}
+              logoHeight={72}
               direction="left"
-              gap={72}
+              gap={96}
               fadeOut
-              fadeOutColor="#0b1512"
+              fadeOutColor="#ffffff"
               scaleOnHover
               ariaLabel="Clients we work with"
             />
