@@ -1,5 +1,6 @@
 import { Container, Section } from "@/components/layout/container";
 import { FadeUp } from "@/components/motion/fade-up";
+import Image from "next/image";
 
 export function IntroReveal() {
   return (
@@ -26,7 +27,7 @@ export function IntroReveal() {
               <h3 className="text-2xl sm:text-[26px] font-semibold text-ink mb-4">
                 Who We Are
               </h3>
-              <p className="text-[17px] text-[#52616b] font-medium leading-relaxed mb-10 max-w-[280px]">
+              <p className="text-[17px] text-[#52616b] font-medium leading-relaxed mb-6 max-w-[280px]">
                 Building digital solutions that create meaningful impact.
               </p>
             </FadeUp>
@@ -42,9 +43,15 @@ export function IntroReveal() {
               </div>
             </FadeUp>
 
-            {/* Subtle 'A' Watermark underneath credibility */}
-            <div className="absolute -bottom-24 -left-6 pointer-events-none select-none opacity-[0.04] text-[#0e7a5f] z-0 hidden sm:block">
-              <span className="text-[260px] font-bold leading-none font-heading tracking-tighter">A</span>
+            {/* Subtle Amigosia Logo Watermark underneath (replacing 'A' text watermark) */}
+            <div className="absolute -bottom-16 -left-8 pointer-events-none select-none opacity-[0.06] z-0 hidden sm:block w-[260px] h-[260px]">
+              <Image
+                src="/amigosia-logo.png"
+                alt="Amigosia Logo Watermark"
+                width={260}
+                height={260}
+                className="object-contain"
+              />
             </div>
           </div>
 

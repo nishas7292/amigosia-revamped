@@ -2,9 +2,9 @@ import { Container, Section } from "@/components/layout/container";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
 import Image, { StaticImageData } from "next/image";
 import kudumbashreeLogo from "@/public/partner_logos/logo-kudumbashree.png";
-import kldbLogo from "@/public/logos/KLDB  LOGO PNG (1).png";
-import logizenLogo from "@/public/logos/logizen_logo.png";
-import kbnholdingsLogo from "@/public/logos/kbn.png";
+import kldbLogo from "@/public/partner_logos/KLDB  LOGO PNG (1).png";
+import logizenLogo from "@/public/partner_logos/logizen_logo.png";
+import kbnholdingsLogo from "@/public/partner_logos/kbn.png";
 import digicouponLogo from "@/public/logos/digicoupon.png";
 
 interface ClientCardItem {
