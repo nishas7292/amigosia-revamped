@@ -1,15 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CheckCircle2, AlertCircle, Send, Mail, User } from "lucide-react";
+import { CheckCircle2, AlertCircle, Send, Mail, User, Phone, UploadCloud, FileText, X } from "lucide-react";
 
 export function CareersHero() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      if (file.size > 5 * 1024 * 1024) {
+        setErrorMsg("File size must be less than 5MB.");
+        return;
+      }
+      setSelectedFile(file);
+      setErrorMsg("");
+    }
+  }
+
+  function handleDrop(e: React.DragEvent<HTMLDivElement>) {
+    e.preventDefault();
+    setIsDragging(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      const file = e.dataTransfer.files[0];
+      if (file.size > 5 * 1024 * 1024) {
+        setErrorMsg("File size must be less than 5MB.");
+        return;
+      }
+      setSelectedFile(file);
+      setErrorMsg("");
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,13 +63,14 @@ export function CareersHero() {
       return;
     }
 
+    if (selectedFile) {
+      formData.set("resume", selectedFile);
+    }
+
     try {
       const response = await fetch("/api/careers", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email }),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -48,6 +78,7 @@ export function CareersHero() {
       }
 
       setStatus("success");
+      setSelectedFile(null);
     } catch (error) {
       setStatus("error");
       setErrorMsg("Something went wrong. Please try again.");
@@ -77,7 +108,7 @@ export function CareersHero() {
                 <CheckCircle2 className="w-16 h-16 text-emerald mb-2" />
                 <h3 className="text-2xl font-heading font-semibold text-ink">Thank you for connecting!</h3>
                 <p className="text-body text-base max-w-lg">
-                  We have received your details at <span className="font-semibold text-emerald">admin@amigosia.com</span>. Our hiring team will get back to you shortly.
+                  We have received your details and resume at <span className="font-semibold text-emerald">admin@amigosia.com</span>. Our hiring team will get back to you shortly.
                 </p>
                 <Button
                   onClick={() => setStatus("idle")}
@@ -93,7 +124,7 @@ export function CareersHero() {
                 <div>
                   <h3 className="text-xl sm:text-2xl font-heading font-semibold text-ink mb-1">Quick Connect</h3>
                   <p className="text-sm sm:text-base text-body">
-                    Send us your information to get connected with our recruitment team immediately.
+                    Send us your information and resume to get connected with our recruitment team immediately.
                   </p>
                 </div>
 
@@ -112,6 +143,7 @@ export function CareersHero() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* Name Input */}
                   <div className="space-y-2">
                     <label htmlFor="hero-name" className="text-sm font-medium text-ink flex items-center gap-1.5">
                       <User className="w-4 h-4 text-emerald" /> Name <span className="text-destructive">*</span>
@@ -125,6 +157,7 @@ export function CareersHero() {
                     />
                   </div>
 
+                  {/* Email Input */}
                   <div className="space-y-2">
                     <label htmlFor="hero-email" className="text-sm font-medium text-ink flex items-center gap-1.5">
                       <Mail className="w-4 h-4 text-emerald" /> Email <span className="text-destructive">*</span>
@@ -138,6 +171,87 @@ export function CareersHero() {
                       className="h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4"
                     />
                   </div>
+                </div>
+
+                {/* Phone Number Input */}
+                <div className="space-y-2">
+                  <label htmlFor="hero-phone" className="text-sm font-medium text-ink flex items-center gap-1.5">
+                    <Phone className="w-4 h-4 text-emerald" /> Phone Number <span className="text-body text-xs font-normal">(Optional)</span>
+                  </label>
+                  <Input
+                    id="hero-phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+91 98765 43210"
+                    className="h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4"
+                  />
+                </div>
+
+                {/* Resume Upload Box */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-ink flex items-center gap-1.5">
+                    <FileText className="w-4 h-4 text-emerald" /> Resume / CV Attachment <span className="text-body text-xs font-normal">(PDF, DOC, DOCX up to 5MB)</span>
+                  </label>
+
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    name="resume"
+                    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    onChange={handleFileChange}
+                    className="hidden"
+                  />
+
+                  {selectedFile ? (
+                    <div className="flex items-center justify-between p-4 bg-mint-soft/50 border border-mint rounded-2xl">
+                      <div className="flex items-center gap-3 truncate">
+                        <div className="p-2.5 bg-emerald/10 text-emerald rounded-xl">
+                          <FileText className="w-5 h-5" />
+                        </div>
+                        <div className="truncate text-left">
+                          <p className="text-sm font-semibold text-ink truncate">{selectedFile.name}</p>
+                          <p className="text-xs text-body">{Math.round(selectedFile.size / 1024)} KB</p>
+                        </div>
+                      </div>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => {
+                          setSelectedFile(null);
+                          if (fileInputRef.current) fileInputRef.current.value = "";
+                        }}
+                        className="text-body hover:text-destructive hover:bg-destructive/10 rounded-full"
+                      >
+                        <X className="w-5 h-5" />
+                      </Button>
+                    </div>
+                  ) : (
+                    <div
+                      onClick={() => fileInputRef.current?.click()}
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        setIsDragging(true);
+                      }}
+                      onDragLeave={() => setIsDragging(false)}
+                      onDrop={handleDrop}
+                      className={`border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all ${
+                        isDragging
+                          ? "border-emerald bg-mint-soft/40 scale-[1.01]"
+                          : "border-border hover:border-emerald/60 hover:bg-surface-alt/50"
+                      }`}
+                    >
+                      <div className="flex flex-col items-center justify-center space-y-2">
+                        <div className="p-3 bg-mint-soft text-emerald rounded-full">
+                          <UploadCloud className="w-6 h-6" />
+                        </div>
+                        <p className="text-sm font-semibold text-ink">
+                          Click to upload <span className="text-body font-normal">or drag and drop your resume</span>
+                        </p>
+                        <p className="text-xs text-body">Supported formats: PDF, DOC, DOCX (Max 5MB)</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <Button
