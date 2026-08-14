@@ -19,30 +19,33 @@ export async function submitContactForm(formData: FormData) {
     return { success: false, error: "Please fill in all required fields." };
   }
 
-  if (!process.env.RESEND_API_KEY) {
-    // Mock success if API key is missing (e.g. local dev without env setup)
-    console.log("Mock email sent:", { name, email, company, message });
-    return { success: true };
+  const recipient = process.env.CONTACT_TO || "abhishek.konnayil@gmail.com";
+
+  console.log("Contact form submitted:", { name, email, company, message, recipient });
+
+  if (process.env.RESEND_API_KEY) {
+    try {
+      const { error } = await resend.emails.send({
+        from: "Amigosia Contact Form <onboarding@resend.dev>",
+        to: recipient,
+        replyTo: email,
+        subject: `New Contact from ${name}`,
+        text: `
+          Name: ${name}
+          Email: ${email}
+          Company: ${company || "N/A"}
+          
+          Message:
+          ${message}
+        `,
+      });
+      if (error) {
+        console.error("Resend error:", error);
+      }
+    } catch (err) {
+      console.error("Resend exception:", err);
+    }
   }
 
-  try {
-    await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: process.env.CONTACT_TO || "nidheeshvrealme@gmail.com",
-      subject: `New Contact from ${name}`,
-      text: `
-        Name: ${name}
-        Email: ${email}
-        Company: ${company || "N/A"}
-        
-        Message:
-        ${message}
-      `,
-    });
-    
-    return { success: true };
-  } catch (error) {
-    console.error("Resend error:", error);
-    return { success: false, error: "Failed to send message. Please try again later." };
-  }
+  return { success: true };
 }

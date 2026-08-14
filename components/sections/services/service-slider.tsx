@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { Container, Section } from "@/components/layout/container";
 import { FadeUp } from "@/components/motion/fade-up";
 
@@ -61,7 +60,7 @@ export function ServiceSlider() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="relative w-full max-w-4xl mx-auto h-[260px] md:h-[300px] rounded-[24px] overflow-hidden group cursor-pointer"
+              className="relative w-full max-w-4xl mx-auto h-[260px] md:h-[300px] rounded-[24px] overflow-hidden group"
               whileHover="hover"
               initial="initial"
               whileInView="visible"
@@ -97,27 +96,15 @@ export function ServiceSlider() {
                   <span className="text-white/70 font-medium text-base tracking-wider">
                     0{index + 1}
                   </span>
-                  <motion.div 
-                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20"
-                    variants={{
-                      initial: { rotate: 0, backgroundColor: "rgba(255,255,255,0.1)" },
-                      hover: { rotate: -45, backgroundColor: "rgba(255,255,255,0.2)" }
-                    }}
-                  >
-                    <ArrowRight className="w-4 h-4 text-white" />
-                  </motion.div>
                 </div>
 
                 <div className="md:w-3/4">
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-white mb-2 md:mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-white/80 text-base md:text-lg mb-4 line-clamp-2">
+                  <p className="text-white/80 text-base md:text-lg line-clamp-2">
                     {service.description}
                   </p>
-                  <button className="text-white text-sm font-medium flex items-center gap-2 group-hover:gap-4 transition-all">
-                    Explore Service <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </motion.div>

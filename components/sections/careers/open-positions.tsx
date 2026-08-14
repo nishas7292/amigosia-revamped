@@ -1,9 +1,7 @@
 import { FadeUp } from "@/components/motion/fade-up";
 import { Container, Section } from "@/components/layout/container";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Briefcase } from "lucide-react";
-import Link from "next/link";
 import { ApplyDialog } from "./apply-dialog";
 
 const departments = [
@@ -94,40 +92,45 @@ const departments = [
 
 export function CareersOpenPositions() {
   return (
-    <Section className="py-24 md:py-32 bg-white">
-      <Container className="max-w-4xl">
-        <FadeUp className="mb-16">
+    <Section className="py-24 md:py-36 bg-white">
+      <Container className="max-w-6xl">
+        <FadeUp className="mb-16 text-center md:text-left">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mint-soft text-emerald text-sm font-semibold mb-4">
+            <span>Career Opportunities</span>
+          </div>
           <h2 className="text-3xl md:text-5xl font-heading font-semibold text-ink mb-4 tracking-tight">Current Openings</h2>
-          <p className="text-lg text-body">
-            Become part of a high-performing & collaborative team
+          <p className="text-lg md:text-xl text-body max-w-2xl">
+            Become part of a high-performing & collaborative team building world-class software products.
           </p>
         </FadeUp>
         
         <FadeUp delay={0.1}>
-          <Accordion defaultValue={[]} className="w-full">
+          <Accordion defaultValue={["item-0", "item-1"]} className="w-full space-y-4">
             {departments.map((dept, idx) => (
-              <AccordionItem key={dept.name} value={`item-${idx}`} className="border-b border-border py-2">
-                <AccordionTrigger className="cursor-pointer text-2xl md:text-3xl font-heading font-semibold text-ink hover:no-underline group hover:text-emerald transition-colors py-6 data-[state=open]:text-emerald **:data-[slot=accordion-trigger-icon]:size-6 md:**:data-[slot=accordion-trigger-icon]:size-8 **:data-[slot=accordion-trigger-icon]:text-emerald">
+              <AccordionItem key={dept.name} value={`item-${idx}`} className="border border-border rounded-3xl px-6 md:px-10 py-2 bg-surface-alt/50 data-[state=open]:bg-white data-[state=open]:shadow-sm transition-all">
+                <AccordionTrigger className="cursor-pointer text-2xl md:text-3xl font-heading font-semibold text-ink hover:no-underline group hover:text-emerald transition-colors py-6 md:py-8 data-[state=open]:text-emerald **:data-[slot=accordion-trigger-icon]:size-7 md:**:data-[slot=accordion-trigger-icon]:size-9 **:data-[slot=accordion-trigger-icon]:text-emerald">
                   <div className="flex items-center gap-4">
                     <span>{dept.name}</span>
-                    <span className="text-muted font-normal text-xl bg-surface-alt px-3 py-1 rounded-full group-hover:bg-mint-soft group-hover:text-emerald transition-colors">{dept.openings.length}</span>
+                    <span className="text-emerald font-semibold text-base md:text-lg bg-mint-soft px-4 py-1 rounded-full group-hover:bg-mint transition-colors">
+                      {dept.openings.length} {dept.openings.length === 1 ? "opening" : "openings"}
+                    </span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pb-8 pt-2">
+                <AccordionContent className="pb-8 pt-4">
                   <div className="flex flex-col gap-6">
                     {dept.openings.map((job) => (
-                      <div key={job.title} className="p-6 md:p-8 rounded-2xl border border-border bg-surface hover:border-mint hover:shadow-sm transition-all group/job">
-                        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                      <div key={job.title} className="p-6 md:p-10 rounded-2xl border border-border bg-white hover:border-mint hover:shadow-md transition-all group/job">
+                        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                           <div className="flex-1">
-                            <h3 className="text-xl font-semibold text-ink mb-3 group-hover/job:text-emerald transition-colors">{job.title}</h3>
-                            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-body font-medium mb-4">
-                              <span className="flex items-center gap-2"><Briefcase className="w-4 h-4 text-emerald" /> {job.type}</span>
-                              <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-emerald" /> {job.location}</span>
-                              <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-emerald" /> {job.experience}</span>
+                            <h3 className="text-2xl md:text-3xl font-semibold text-ink mb-4 group-hover/job:text-emerald transition-colors tracking-tight">{job.title}</h3>
+                            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-base text-body font-medium mb-5">
+                              <span className="flex items-center gap-2.5 bg-surface-alt px-3.5 py-1.5 rounded-xl border border-border/60"><Briefcase className="w-4 h-4 text-emerald" /> {job.type}</span>
+                              <span className="flex items-center gap-2.5 bg-surface-alt px-3.5 py-1.5 rounded-xl border border-border/60"><MapPin className="w-4 h-4 text-emerald" /> {job.location}</span>
+                              <span className="flex items-center gap-2.5 bg-surface-alt px-3.5 py-1.5 rounded-xl border border-border/60"><Clock className="w-4 h-4 text-emerald" /> {job.experience}</span>
                             </div>
-                            <p className="text-body leading-relaxed max-w-2xl">{job.description}</p>
+                            <p className="text-body text-base md:text-lg leading-relaxed max-w-3xl">{job.description}</p>
                           </div>
-                          <div className="shrink-0 mt-2 md:mt-0">
+                          <div className="shrink-0 mt-4 lg:mt-0">
                             <ApplyDialog jobTitle={job.title} />
                           </div>
                         </div>
@@ -138,12 +141,6 @@ export function CareersOpenPositions() {
               </AccordionItem>
             ))}
           </Accordion>
-          
-          <div className="mt-16 text-center">
-            <Button variant="outline" className="bg-mint-soft border-mint text-emerald hover:bg-emerald hover:text-white hover:border-emerald rounded-lg px-8 py-6 text-base shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
-              See All Openings &rarr;
-            </Button>
-          </div>
         </FadeUp>
       </Container>
     </Section>
