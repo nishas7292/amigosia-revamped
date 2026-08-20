@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container, Section } from "@/components/layout/container";
 import { FadeUp } from "@/components/motion/fade-up";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger";
@@ -58,12 +59,24 @@ export function OtherProductsBlock() {
               className="bg-white border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-[var(--shadow-hover)] hover:border-mint transition-all flex flex-col hover:-translate-y-1"
             >
               <div className="h-48 w-full bg-surface-alt relative overflow-hidden group">
-                <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
               <div className="p-6 sm:p-8 flex flex-col flex-1 relative">
                 <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center text-emerald mb-6 shrink-0 absolute -top-8 left-6 border-4 border-white shadow-sm overflow-hidden">
                   {product.logo ? (
-                    <img src={product.logo} alt={`${product.title} logo`} className={`w-full h-full ${product.title === "Cloud Kitchen Platform" ? "object-cover scale-110" : "object-contain"}`} />
+                    <Image
+                      src={product.logo}
+                      alt={`${product.title} logo`}
+                      width={64}
+                      height={64}
+                      className={`w-full h-full ${product.title === "Cloud Kitchen Platform" ? "object-cover scale-110" : "object-contain"}`}
+                    />
                   ) : (
                     <div className="w-full h-full bg-mint-soft flex items-center justify-center">
                       <product.icon className="w-6 h-6" />

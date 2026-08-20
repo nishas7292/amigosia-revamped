@@ -5,8 +5,12 @@ import { WhyChooseUs } from "@/components/sections/services/why-choose-us";
 import { ServicesCTA } from "@/components/sections/services/services-cta";
 
 export const metadata: Metadata = {
-  title: "Services | Amigosia",
-  description: "End-to-end product engineering, from first sketch to scaled deployment. We partner with startups and enterprises to design, develop, and scale modern digital products.",
+  title: "Engineering Services",
+  description:
+    "End-to-end product engineering, from first sketch to scaled deployment. We partner with startups and enterprises to design, develop, and scale modern digital products.",
+  alternates: {
+    canonical: "https://amigosia.com/services",
+  },
 };
 
 export default function ServicesPage() {
