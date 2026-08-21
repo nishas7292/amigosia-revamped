@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { AIProductsHero } from "@/components/sections/products/hero";
 import { DeepLensBlock } from "@/components/sections/products/deeplens-block";
 import { DeployMindBlock } from "@/components/sections/products/deploymind-block";
@@ -6,10 +7,30 @@ import { FadeUp } from "@/components/motion/fade-up";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ProductJsonLd } from "@/components/seo/json-ld";
+
+export const metadata: Metadata = {
+  title: "AI Products & Platforms",
+  description:
+    "Explore Amigosia's flagship AI products including DeepLens for intelligent visual processing and DeployMind for automated infrastructure deployment.",
+  alternates: {
+    canonical: "https://amigosia.com/products",
+  },
+};
 
 export default function ProductsPage() {
   return (
     <>
+      <ProductJsonLd
+        name="DeepLens AI"
+        description="Intelligent computer vision and visual intelligence platform for enterprise monitoring and security."
+        url="https://amigosia.com/products#deeplens"
+      />
+      <ProductJsonLd
+        name="DeployMind"
+        description="Autonomous AI deployment agent and infrastructure orchestration platform for modern devops teams."
+        url="https://amigosia.com/products#deploymind"
+      />
       <AIProductsHero />
       <DeepLensBlock />
       <DeployMindBlock />
