@@ -58,17 +58,17 @@ export function Navbar() {
           scrolled ? "border-border/60 py-3" : "border-border/20 py-4"
         )}
       >
-        <Container className="flex items-center justify-between min-h-[56px] md:min-h-[64px]">
-          <Link href="/" className="flex items-center gap-2.5 shrink-0 -mt-1">
+        <Container className="flex items-center justify-between min-h-[64px] md:min-h-[72px]">
+          <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
-              src="/amigosia-logo.png"
-              alt="Amigosia"
-              width={1131}
-              height={1600}
+              src="/nav bar logo.png"
+              alt="Amigosia Logo"
+              width={708}
+              height={650}
               priority
-              className="h-11 md:h-12 w-auto"
+              className="h-28 md:h-36 -my-4 md:-my-6 w-auto shrink-0 object-contain transition-transform hover:scale-105"
             />
-            <span className="text-xl font-heading font-semibold tracking-tight text-ink">Amigosia</span>
+            <span className="text-xl md:text-2xl font-heading font-semibold tracking-tight text-ink">Amigosia</span>
           </Link>
           
           {/* Desktop Nav */}
@@ -140,13 +140,13 @@ export function Navbar() {
         >
           {/* Drawer Header */}
           <div className="flex items-center justify-between p-5 border-b border-border bg-white">
-            <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
+            <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2.5">
               <Image
-                src="/amigosia-logo.png"
-                alt="Amigosia"
-                width={1131}
-                height={1600}
-                className="h-8 w-auto"
+                src="/nav bar logo.png"
+                alt="Amigosia Logo"
+                width={708}
+                height={650}
+                className="h-20 w-auto shrink-0 object-contain"
               />
               <span className="font-heading font-semibold text-lg text-ink">Amigosia</span>
             </Link>

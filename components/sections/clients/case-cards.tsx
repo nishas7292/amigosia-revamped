@@ -9,6 +9,7 @@ import digicouponLogo from "@/public/logos/digicoupon.png";
 
 interface ClientCardItem {
   name: string;
+  subName?: string;
   role: string;
   relationship: string;
   logo: StaticImageData;
@@ -18,7 +19,8 @@ interface ClientCardItem {
 
 const clients: ClientCardItem[] = [
   {
-    name: "Kudumbashree (Government of Kerala)",
+    name: "Kudumbashree",
+    subName: "(Government of Kerala)",
     role: "Technology Partner since 2024",
     relationship:
       "Supporting the digital transformation of India's largest women-led community development mission through innovative e-commerce, event management, and digital commerce solutions.",
@@ -26,7 +28,8 @@ const clients: ClientCardItem[] = [
     tag: "Government & Community",
   },
   {
-    name: "Kerala Livestock Development Board (KLDB)",
+    name: "Kerala Livestock Development Board",
+    subName: "(Government of Kerala)",
     role: "Digital Transformation Partner",
     relationship:
       "Developing and maintaining LAPTOP (Livestock And Pets Trading Online Platform), enabling farmers, breeders, and buyers to connect through a secure and efficient digital marketplace across Kerala.",
@@ -98,9 +101,16 @@ export function CaseCards() {
                 </div>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-heading font-semibold text-ink border-t border-border pt-6 mt-6">
-                {client.name}
-              </h3>
+              <div className="border-t border-border pt-6 mt-6">
+                <h3 className="text-xl sm:text-2xl font-heading font-semibold text-ink">
+                  {client.name}
+                </h3>
+                {client.subName && (
+                  <span className="block text-sm sm:text-base font-semibold text-[#3f4d48] mt-1">
+                    {client.subName}
+                  </span>
+                )}
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>

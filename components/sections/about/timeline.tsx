@@ -7,16 +7,20 @@ import { Container, Section } from "@/components/layout/container";
 
 const events = [
   {
-    year: "Oct 2021",
-    title: "Founded in October 2021, we create modern software solutions for businesses of all sizes.",
+    year: "2021",
+    title: "Amigosia Private Limited — Founded in Oct 2021",
   },
   {
     year: "Sept 2022",
-    title: "Amigosia established at Kerala Start-up Mission Incubation Centre, Palakkad",
+    title: "Moved to Kerala Start-up Mission Incubation Centre, Palakkad",
+  },
+  {
+    year: "Aug 2023",
+    title: "Launched our first product Near2Me, a hyperlocal marketplace for farm-based and home-based products",
   },
   {
     year: "2024",
-    title: "Became technology partner to Kudumbashree",
+    title: "Became technology partner to Kudumbashree, launched PocketMart — an all-in-one flagship product for the Kudumbashree ecosystem",
   },
   {
     year: "Jan 2025",
@@ -24,11 +28,11 @@ const events = [
   },
   {
     year: "Oct 2025",
-    title: "Entered international expansion with KBN Holdings (Qatar) partnership",
+    title: "Technology partner with KBN Holdings",
   },
   {
     year: "2026",
-    title: "Ongoing product suite expansion (PocketMart, Near2Me, DigiCoupon, and more)",
+    title: "Initiated technology support for NRO (National Resource Organisation)",
   },
 ];
 
