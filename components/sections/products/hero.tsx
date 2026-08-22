@@ -8,7 +8,7 @@ export function AIProductsHero() {
         <FadeUp>
           <h1 className="text-4xl md:text-6xl font-heading font-semibold text-ink mb-6 tracking-tight">Our Products</h1>
           <p className="text-xl md:text-2xl text-emerald font-medium max-w-2xl mx-auto">
-            Engineering-first platforms, built in-house — not integrations, our own IP.
+            Engineering-first platforms, built in-house — our own IP.
           </p>
         </FadeUp>
       </Container>

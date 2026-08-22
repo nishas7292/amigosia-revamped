@@ -32,15 +32,10 @@ export function IntroReveal() {
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.2} className="flex flex-col gap-2.5 relative z-10">
-              <div className="flex items-center gap-3 text-sm text-[#52616b]/80 font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#a6e8cd]" />
-                <span>Established 2022</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-[#52616b]/80 font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#a6e8cd]" />
-                <span>KSUM Incubated</span>
-              </div>
+            <FadeUp delay={0.2} className="relative z-10">
+              <p className="text-[14px] sm:text-[15px] text-[#52616b] font-medium leading-relaxed max-w-[280px]">
+                Driving digital transformation for India’s largest women-led community development mission through innovative e-commerce and digital solutions
+              </p>
             </FadeUp>
 
             {/* Subtle Amigosia Logo Watermark underneath (replacing 'A' text watermark) */}
@@ -65,13 +60,13 @@ export function IntroReveal() {
           <div className="w-full lg:w-[60%] xl:w-[65%] flex flex-col text-left">
             <FadeUp delay={0.1}>
               <h2 className="text-4xl sm:text-[46px] lg:text-[50px] font-heading font-bold text-ink leading-[1.08] tracking-tight mb-10 text-balance">
-                Technology Built for Real-World Impact.
+                Technology Built for Real-World Impact
               </h2>
             </FadeUp>
 
             <FadeUp delay={0.2}>
               <p className="text-[17px] sm:text-[18px] text-[#52616b] leading-[1.7] mb-8 max-w-[650px]">
-                Amigosia Private Limited is an innovation-driven software company established in 2022 and incubated at the Kerala Startup Mission (KSUM). We build scalable digital products, AI-powered solutions, enterprise applications, and public-sector platforms that help organizations transform digitally and grow sustainably.
+                Amigosia Private Limited is an innovation-led technology company established in 2022 and incubated at the Kerala Startup Mission (KSUM). We build scalable digital products, AI-powered solutions, enterprise applications, and public-sector platforms that help organizations transform digitally and grow sustainably.
               </p>
             </FadeUp>
 

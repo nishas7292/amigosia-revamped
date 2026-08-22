@@ -24,7 +24,7 @@ export function DeepLensBlock() {
               </h1>
               
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-ink mb-6 leading-tight">
-                Understand the Impact of Every Code Change.
+                Understand the Impact of Every Code Change
               </h2>
               
               <p className="text-lg md:text-xl text-body mb-3 leading-relaxed max-w-xl">

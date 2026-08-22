@@ -22,9 +22,10 @@ export function Footer() {
             <h3 className="text-white font-medium mb-4">Company</h3>
             <ul className="flex flex-col gap-3">
               <li><Link href="/about" className="text-surface-alt/70 hover:text-mint transition-colors">About</Link></li>
-              <li><Link href="/ai-products" className="text-surface-alt/70 hover:text-mint transition-colors">AI Products</Link></li>
               <li><Link href="/products" className="text-surface-alt/70 hover:text-mint transition-colors">Products</Link></li>
               <li><Link href="/services" className="text-surface-alt/70 hover:text-mint transition-colors">Services</Link></li>
+              <li><Link href="/clients" className="text-surface-alt/70 hover:text-mint transition-colors">Clients</Link></li>
+              <li><Link href="/careers" className="text-surface-alt/70 hover:text-mint transition-colors">Careers</Link></li>
             </ul>
           </div>
           <div>
