@@ -30,7 +30,7 @@ export function HeroSection() {
             >
               <span className="w-2 h-2 rounded-full bg-[#0e7a5f]" />
               <span className="text-[#0e7a5f] text-[11px] sm:text-[13px] font-semibold tracking-wide uppercase">
-                INNOVATION-DRIVEN SOFTWARE COMPANY
+                INNOVATION-LED TECHNOLOGY COMPANY
               </span>
             </motion.div>
 
@@ -42,7 +42,7 @@ export function HeroSection() {
               className="w-full max-w-[700px]"
             >
               <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-heading font-[700] text-ink leading-[1.05] tracking-tight mb-6">
-                Building Technology That Matters.
+                Building Technology That Matters
               </h1>
             </motion.div>
 
@@ -67,12 +67,12 @@ export function HeroSection() {
                 Trusted across sectors
               </p>
               <p className="text-[13px] sm:text-sm text-[#52616b] font-medium mb-1">
-                Government <span className="text-[#a6e8cd] mx-1.5">•</span> Startups <span className="text-[#a6e8cd] mx-1.5">•</span> International Businesses
+                Government <span className="text-[#a6e8cd] mx-1.5">•</span> Startups <span className="text-[#a6e8cd] mx-1.5">•</span> Global Partnership
               </p>
-              <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#52616b]/80 font-medium">
+              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs text-[#52616b]/80 font-medium">
                 <span>Established 2022</span>
                 <span className="w-1 h-1 rounded-full bg-[#a6e8cd]" />
-                <span>KSUM Incubated</span>
+                <span>Startup India / Kerala Startup Mission Incubated</span>
               </div>
             </motion.div>
 

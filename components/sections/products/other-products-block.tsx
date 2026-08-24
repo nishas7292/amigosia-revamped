@@ -28,7 +28,7 @@ const otherProducts = [
   },
   {
     title: "DigiCoupon",
-    description: "A secure, QR-based digital coupon platform for high-volume events.",
+    description: "A secure, QR-based digital coupon platform for high-volume mega events.",
     image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800&q=80",
     icon: QrCode,
     logo: "/logos/digicoupon.png",
@@ -46,7 +46,7 @@ export function OtherProductsBlock() {
     <Section className="bg-surface-alt">
       <Container>
         <FadeUp className="text-center mb-16 md:mb-20">
-          <h2 className="text-3xl md:text-4xl font-heading font-semibold text-ink mb-4">More Company Products</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold text-ink mb-4">Solutions &amp; Products</h2>
           <p className="text-lg md:text-xl text-body max-w-2xl mx-auto">
             Platforms built to power commerce, community, and connection.
           </p>

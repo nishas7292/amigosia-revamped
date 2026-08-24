@@ -8,7 +8,7 @@ export function ClientsHero() {
         <FadeUp>
           <h1 className="text-4xl md:text-6xl font-heading font-semibold text-ink mb-6 tracking-tight">Our Clients</h1>
           <p className="text-xl md:text-2xl text-emerald font-medium max-w-2xl mx-auto">
-            Trusted by governments, enterprises, and global partners.
+            Trusted by governments, enterprises, and global partners
           </p>
         </FadeUp>
       </Container>

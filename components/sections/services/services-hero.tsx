@@ -10,7 +10,7 @@ export function ServicesHero() {
             Our Services
           </h1>
           <p className="text-xl md:text-2xl text-body leading-relaxed max-w-3xl mx-auto font-medium">
-            Building Digital Products That Drive Growth.
+            Building Digital Products That Drive Growth
           </p>
           <p className="text-lg text-body leading-relaxed max-w-3xl mx-auto mt-6">
             We partner with startups and enterprises to design, develop, and scale modern digital products that deliver exceptional user experiences and measurable business impact.

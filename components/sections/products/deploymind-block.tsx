@@ -21,7 +21,7 @@ export function DeployMindBlock() {
           </h2>
           
           <h3 className="text-4xl md:text-6xl font-heading font-semibold text-ink mb-6 max-w-4xl leading-tight tracking-tight">
-            Deploy to the Cloud Without the DevOps Overhead.
+            Deploy to the Cloud Without the DevOps Overhead
           </h3>
           
           <p className="text-lg md:text-xl text-body leading-relaxed max-w-2xl font-medium">
@@ -37,7 +37,7 @@ export function DeployMindBlock() {
                 <span className="text-emerald mr-2">01</span> The Problem
               </div>
               <h4 className="text-2xl font-heading font-semibold text-ink mb-4">
-                Deployment shouldn't require days of manual setup.
+                Deployment shouldn't require days of manual setup
               </h4>
               <p className="text-body leading-relaxed">
                 Teams spend days writing infrastructure scripts, configuring servers, wiring CI/CD pipelines, and managing secrets by hand just to get one app online — usually requiring a dedicated DevOps engineer.
@@ -49,7 +49,7 @@ export function DeployMindBlock() {
                 <span className="text-emerald mr-2">02</span> The Solution
               </div>
               <h4 className="text-2xl font-heading font-semibold text-ink mb-4 relative z-10">
-                From GitHub repository to production-ready infrastructure.
+                From GitHub repository to production-ready infrastructure
               </h4>
               <p className="text-body leading-relaxed relative z-10">
                 Connect your GitHub repo, pick your cloud provider, and DeployMind generates everything needed to deploy automatically — infrastructure, pipeline, and all. What used to take days now takes minutes.

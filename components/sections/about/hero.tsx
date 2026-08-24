@@ -20,7 +20,7 @@ export function AboutHero() {
 
         <FadeUp delay={0.2} className="w-full max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-[64px] lg:text-[72px] font-heading font-bold text-ink leading-[1.05] tracking-tight mb-8">
-            Building Technology<br className="hidden sm:block" /> That Creates Impact.
+            Building Technology<br className="hidden sm:block" /> That Creates Impact
           </h1>
         </FadeUp>
 

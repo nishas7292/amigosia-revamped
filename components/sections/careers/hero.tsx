@@ -40,10 +40,13 @@ export function CareersHero() {
     }
   }
 
+  const [fieldErrors, setFieldErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
     setErrorMsg("");
+    setFieldErrors({});
 
     const formData = new FormData(e.currentTarget);
     const botField = formData.get("bot_field");
@@ -56,10 +59,34 @@ export function CareersHero() {
 
     const name = formData.get("name")?.toString().trim() || "";
     const email = formData.get("email")?.toString().trim() || "";
+    const phone = formData.get("phone")?.toString().trim() || "";
 
-    if (!name || !email) {
+    const errors: { name?: string; email?: string; phone?: string } = {};
+
+    if (!name) {
+      errors.name = "Name is required.";
+    } else if (name.length < 2) {
+      errors.name = "Name must be at least 2 characters.";
+    } else if (!/^[a-zA-Z\s]+$/.test(name)) {
+      errors.name = "Name must contain only letters and spaces.";
+    }
+
+    if (!email) {
+      errors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = "Please enter a valid email format.";
+    }
+
+    if (!phone) {
+      errors.phone = "Phone number is required.";
+    } else if (!/^\d{10}$/.test(phone)) {
+      errors.phone = "Phone number must be exactly 10 digits.";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
       setStatus("error");
-      setErrorMsg("Please enter both your name and email.");
+      setErrorMsg("Please fix the errors in the form before submitting.");
       return;
     }
 
@@ -79,6 +106,7 @@ export function CareersHero() {
 
       setStatus("success");
       setSelectedFile(null);
+      setFieldErrors({});
     } catch (error) {
       setStatus("error");
       setErrorMsg("Something went wrong. Please try again.");
@@ -123,9 +151,6 @@ export function CareersHero() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <h3 className="text-xl sm:text-2xl font-heading font-semibold text-ink mb-1">Quick Connect</h3>
-                  <p className="text-sm sm:text-base text-body">
-                    Send us your information and resume to get connected with our recruitment team immediately.
-                  </p>
                 </div>
 
                 {status === "error" && (
@@ -151,10 +176,14 @@ export function CareersHero() {
                     <Input
                       id="hero-name"
                       name="name"
-                      required
                       placeholder="Your full name"
-                      className="h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4"
+                      className={`h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4 ${
+                        fieldErrors.name ? "border-destructive focus-visible:ring-destructive" : ""
+                      }`}
                     />
+                    {fieldErrors.name && (
+                      <p className="text-xs text-destructive font-medium mt-1">{fieldErrors.name}</p>
+                    )}
                   </div>
 
                   {/* Email Input */}
@@ -166,25 +195,34 @@ export function CareersHero() {
                       id="hero-email"
                       name="email"
                       type="email"
-                      required
                       placeholder="Your email address"
-                      className="h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4"
+                      className={`h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4 ${
+                        fieldErrors.email ? "border-destructive focus-visible:ring-destructive" : ""
+                      }`}
                     />
+                    {fieldErrors.email && (
+                      <p className="text-xs text-destructive font-medium mt-1">{fieldErrors.email}</p>
+                    )}
                   </div>
                 </div>
 
                 {/* Phone Number Input */}
                 <div className="space-y-2">
                   <label htmlFor="hero-phone" className="text-sm font-medium text-ink flex items-center gap-1.5">
-                    <Phone className="w-4 h-4 text-emerald" /> Phone Number <span className="text-body text-xs font-normal">(Optional)</span>
+                    <Phone className="w-4 h-4 text-emerald" /> Phone Number <span className="text-destructive">*</span>
                   </label>
                   <Input
                     id="hero-phone"
                     name="phone"
                     type="tel"
-                    placeholder="+91 98765 43210"
-                    className="h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4"
+                    placeholder="10-digit Indian phone number"
+                    className={`h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4 ${
+                      fieldErrors.phone ? "border-destructive focus-visible:ring-destructive" : ""
+                    }`}
                   />
+                  {fieldErrors.phone && (
+                    <p className="text-xs text-destructive font-medium mt-1">{fieldErrors.phone}</p>
+                  )}
                 </div>
 
                 {/* Resume Upload Box */}
