@@ -95,7 +95,7 @@ export function CareersHero() {
     }
 
     try {
-      const response = await fetch("/api/careers", {
+      const response = await fetch("/mail/application.php", {
         method: "POST",
         body: formData,
       });

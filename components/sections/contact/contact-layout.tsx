@@ -30,7 +30,6 @@ export function ContactLayout() {
 
     const name = formData.get("name")?.toString().trim() || "";
     const email = formData.get("email")?.toString().trim() || "";
-    const company = formData.get("company")?.toString().trim() || "";
     const message = formData.get("message")?.toString().trim() || "";
 
     const errors: { name?: string; email?: string; message?: string } = {};
@@ -63,12 +62,9 @@ export function ContactLayout() {
     }
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/mail/inquiry.php", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, company, message }),
+        body: formData,
       });
 
       if (!response.ok) {

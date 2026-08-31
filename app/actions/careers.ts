@@ -1,5 +1,3 @@
-"use server";
-
 export async function submitCareerApplication(prevState: any, formData: FormData) {
   try {
     const data = {

@@ -1,0 +1,41 @@
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Trailing-slash directory requests (e.g. /contact/) map straight to the
+# matching flat .html file (e.g. /contact.html). Next's static export creates
+# a same-named folder for each route holding only internal prefetch metadata,
+# no index.html — without this rule those requests fall through to Apache's
+# directory-listing-forbidden handling instead of the real page.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.+)/$ /$1.html [L]
+
+# Serve the exact file if it exists
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Clean URLs: /about -> /about/index.html (if export emits folder+index.html)
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.*[^/])$ $1/index.html [L]
+
+# Clean URLs: /about -> /about.html (if export emits flat .html files)
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*[^/])$ $1.html [L]
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<FilesMatch "\.(md)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

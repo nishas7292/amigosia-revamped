@@ -28,7 +28,6 @@ export function CareersConnectForm() {
 
     const name = formData.get("name")?.toString().trim() || "";
     const email = formData.get("email")?.toString().trim() || "";
-    const message = formData.get("message")?.toString().trim() || "";
 
     if (!name || !email) {
       setStatus("error");
@@ -37,12 +36,9 @@ export function CareersConnectForm() {
     }
 
     try {
-      const response = await fetch("/api/careers", {
+      const response = await fetch("/mail/application.php", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
+        body: formData,
       });
 
       if (!response.ok) {
