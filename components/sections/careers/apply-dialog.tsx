@@ -23,6 +23,7 @@ interface ApplyDialogProps {
 export function ApplyDialog({ jobTitle }: ApplyDialogProps) {
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [phone, setPhone] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,6 +33,7 @@ export function ApplyDialog({ jobTitle }: ApplyDialogProps) {
       const res = await submitCareerApplication(null, formData);
       if (res.success) {
         setOpen(false);
+        setPhone("");
       } else {
         alert(res.message);
       }
@@ -78,7 +80,14 @@ export function ApplyDialog({ jobTitle }: ApplyDialogProps) {
             
             <div className="space-y-2">
               <Label htmlFor="phone">Phone number</Label>
-              <Input id="phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" />
+              <Input 
+                id="phone" 
+                name="phone" 
+                type="tel" 
+                value={phone}
+                onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
+                placeholder="Enter your phone number" 
+              />
             </div>
 
             <div className="space-y-2">

@@ -75,7 +75,7 @@ export function CareersConnectForm() {
                 <CheckCircle2 className="w-16 h-16 text-emerald mb-2" />
                 <h3 className="text-2xl font-heading font-semibold text-ink">Message Sent!</h3>
                 <p className="text-body text-lg">
-                  Thank you for reaching out! Your submission has been sent to admin@amigosia.com and we'll get back to you soon.
+                  We have received your details and resume. Our hiring team will get back to you shortly.
                 </p>
                 <Button
                   onClick={() => setStatus("idle")}

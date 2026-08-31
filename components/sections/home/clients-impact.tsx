@@ -61,29 +61,31 @@ const clientLogos: ClientLogoItem[] = [
     name: "Kudumbashree Mission",
     src: "/partner_logos/logo-kudumbashree.png",
     alt: "Kudumbashree Mission",
-    height: 64,
-    className: "opacity-95 hover:opacity-100 object-contain h-16 sm:h-20 md:h-24 w-auto transition-all",
+    className: "object-contain h-20 sm:h-24 md:h-28 w-auto transition-all hover:brightness-105",
   },
   {
     name: "Kerala Livestock Development Board",
     src: "/partner_logos/KLDB  LOGO PNG (1).png",
     alt: "Kerala Livestock Development Board",
-    height: 64,
-    className: "opacity-95 hover:opacity-100 object-contain h-16 sm:h-20 md:h-24 w-auto transition-all",
+    className: "object-contain h-20 sm:h-24 md:h-28 w-auto transition-all hover:brightness-105",
+  },
+  {
+    name: "DigiCoupon",
+    src: "/logos/digicoupon.png",
+    alt: "DigiCoupon - National Resource Organisation",
+    className: "object-contain h-16 sm:h-20 md:h-24 w-auto transition-all hover:brightness-105",
   },
   {
     name: "Logizen LLC",
     src: "/partner_logos/logizen_logo.png",
     alt: "Logizen LLC",
-    height: 52,
-    className: "opacity-95 hover:opacity-100 object-contain h-12 sm:h-16 md:h-18 w-auto transition-all",
+    className: "object-contain h-16 sm:h-20 md:h-24 w-auto transition-all hover:brightness-105",
   },
   {
     name: "KBN Holdings",
     src: "/partner_logos/kbn.png",
     alt: "KBN Holdings",
-    height: 56,
-    className: "opacity-95 hover:opacity-100 object-contain h-14 sm:h-18 md:h-20 w-auto transition-all",
+    className: "object-contain h-18 sm:h-22 md:h-26 w-auto transition-all hover:brightness-105",
   },
 ];
 
@@ -104,11 +106,11 @@ export function ClientsImpact() {
         </FadeUp>
 
         <FadeUp delay={0.1} className="mb-10 md:mb-20">
-          <div className="relative h-32 sm:h-40 md:h-48 bg-white rounded-3xl flex items-center shadow-sm border border-border overflow-hidden px-6">
+          <div className="relative h-28 sm:h-36 md:h-44 bg-white rounded-3xl flex items-center shadow-sm border border-border overflow-hidden px-6 sm:px-10">
             <LogoLoop
               logos={clientLogos}
-              speed={45}
-              logoHeight={72}
+              speed={40}
+              logoHeight={96}
               direction="left"
               gap={96}
               fadeOut
