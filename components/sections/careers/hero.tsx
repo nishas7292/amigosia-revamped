@@ -11,6 +11,7 @@ export function CareersHero() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [phoneInput, setPhoneInput] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -106,6 +107,7 @@ export function CareersHero() {
 
       setStatus("success");
       setSelectedFile(null);
+      setPhoneInput("");
       setFieldErrors({});
     } catch (error) {
       setStatus("error");
@@ -136,10 +138,13 @@ export function CareersHero() {
                 <CheckCircle2 className="w-16 h-16 text-emerald mb-2" />
                 <h3 className="text-2xl font-heading font-semibold text-ink">Thank you for connecting!</h3>
                 <p className="text-body text-base max-w-lg">
-                  We have received your details and resume at <span className="font-semibold text-emerald">admin@amigosia.com</span>. Our hiring team will get back to you shortly.
+                  We have received your details and resume. Our hiring team will get back to you shortly.
                 </p>
                 <Button
-                  onClick={() => setStatus("idle")}
+                  onClick={() => {
+                    setStatus("idle");
+                    setPhoneInput("");
+                  }}
                   variant="outline"
                   size="lg"
                   className="mt-4 rounded-full border-2 text-emerald hover:bg-emerald hover:text-white px-8"
@@ -215,7 +220,15 @@ export function CareersHero() {
                     id="hero-phone"
                     name="phone"
                     type="tel"
-                    placeholder="10-digit Indian phone number"
+                    value={phoneInput}
+                    onChange={(e) => {
+                      const digitsOnly = e.target.value.replace(/\D/g, "").slice(0, 10);
+                      setPhoneInput(digitsOnly);
+                      if (fieldErrors.phone) {
+                        setFieldErrors((prev) => ({ ...prev, phone: undefined }));
+                      }
+                    }}
+                    placeholder="Enter your phone number"
                     className={`h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4 ${
                       fieldErrors.phone ? "border-destructive focus-visible:ring-destructive" : ""
                     }`}

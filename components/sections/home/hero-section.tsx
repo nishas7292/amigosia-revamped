@@ -61,7 +61,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col gap-1.5 mb-12"
+              className="flex flex-col gap-1.5 mb-10 w-full"
             >
               <p className="text-[11px] sm:text-xs font-semibold text-ink/70 uppercase tracking-widest">
                 Trusted across sectors
@@ -69,10 +69,48 @@ export function HeroSection() {
               <p className="text-[13px] sm:text-sm text-[#52616b] font-medium mb-1">
                 Government <span className="text-[#a6e8cd] mx-1.5">•</span> Startups <span className="text-[#a6e8cd] mx-1.5">•</span> Global Partnership
               </p>
-              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs text-[#52616b]/80 font-medium">
+              
+              <div className="text-[11px] sm:text-xs text-[#52616b]/80 font-medium mb-1">
                 <span>Established 2022</span>
-                <span className="w-1 h-1 rounded-full bg-[#a6e8cd]" />
-                <span>Startup India / Kerala Startup Mission Incubated</span>
+              </div>
+
+              {/* Institutional Credential Signature */}
+              <div className="mt-3 pt-3.5 border-t border-border/40 max-w-lg">
+                <div className="grid grid-cols-2 gap-4 sm:gap-6 items-start">
+                  
+                  {/* Column 1: Recognized By */}
+                  <div className="flex flex-col items-start gap-2 pr-4 sm:pr-6 border-r border-border/40">
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-ink/50 uppercase tracking-widest">
+                      RECOGNIZED BY
+                    </span>
+                    <div className="h-12 sm:h-16 flex items-center">
+                      <Image
+                        src="/logos/startu india logo (1).png"
+                        alt="Startup India - Recognized Startup"
+                        width={180}
+                        height={56}
+                        className="h-11 sm:h-14 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Column 2: Incubated By */}
+                  <div className="flex flex-col items-start gap-2 pl-2 sm:pl-4">
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-ink/50 uppercase tracking-widest">
+                      INCUBATED BY
+                    </span>
+                    <div className="h-12 sm:h-16 flex items-center">
+                      <Image
+                        src="/logos/kerala-startup-mission-logo (1).png"
+                        alt="Kerala Startup Mission - Incubated"
+                        width={180}
+                        height={56}
+                        className="h-11 sm:h-14 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </motion.div>
 
