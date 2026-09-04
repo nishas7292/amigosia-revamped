@@ -11,7 +11,21 @@ import { CheckCircle2, AlertCircle, Mail, Phone, MapPin } from "lucide-react";
 export function ContactLayout() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [nameInput, setNameInput] = useState("");
   const [fieldErrors, setFieldErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+
+  function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value.replace(/[^a-zA-Z\s]/g, "").slice(0, 20);
+    setNameInput(value);
+    
+    if (fieldErrors.name) {
+      setFieldErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors.name;
+        return newErrors;
+      });
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -76,6 +90,7 @@ export function ContactLayout() {
       }
 
       setStatus("success");
+      setNameInput("");
       setFieldErrors({});
     } catch (error) {
       setStatus("error");
@@ -136,7 +151,10 @@ export function ContactLayout() {
                   <CheckCircle2 className="w-16 h-16 text-emerald mb-2" />
                   <h3 className="text-2xl font-heading font-semibold text-ink">Message Sent!</h3>
                   <p className="text-body text-lg">Your message has been sent successfully. We'll get back to you soon.</p>
-                  <Button onClick={() => setStatus("idle")} variant="outline" className="mt-4 rounded-full border-2 text-emerald hover:bg-emerald hover:text-white">
+                  <Button onClick={() => {
+                    setStatus("idle");
+                    setNameInput("");
+                  }} variant="outline" className="mt-4 rounded-full border-2 text-emerald hover:bg-emerald hover:text-white">
                     Send another message
                   </Button>
                 </div>
@@ -160,6 +178,8 @@ export function ContactLayout() {
                       <Input
                         id="name"
                         name="name"
+                        value={nameInput}
+                        onChange={handleNameChange}
                         placeholder="Enter your name"
                         className={`h-12 rounded-xl focus-visible:ring-emerald ${
                           fieldErrors.name ? "border-destructive focus-visible:ring-destructive" : ""

@@ -11,6 +11,8 @@ export function CareersHero() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [nameInput, setNameInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
   const [phoneInput, setPhoneInput] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -42,6 +44,34 @@ export function CareersHero() {
   }
 
   const [fieldErrors, setFieldErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
+
+  function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value.replace(/[^a-zA-Z\s]/g, "").slice(0, 20);
+    setNameInput(value);
+    
+    if (fieldErrors.name) {
+      setFieldErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors.name;
+        return newErrors;
+      });
+    }
+  }
+
+  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value;
+    setEmailInput(value);
+    
+    if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      setFieldErrors(prev => ({ ...prev, email: "Please enter a valid email format." }));
+    } else {
+      setFieldErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors.email;
+        return newErrors;
+      });
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -107,6 +137,8 @@ export function CareersHero() {
 
       setStatus("success");
       setSelectedFile(null);
+      setNameInput("");
+      setEmailInput("");
       setPhoneInput("");
       setFieldErrors({});
     } catch (error) {
@@ -143,6 +175,8 @@ export function CareersHero() {
                 <Button
                   onClick={() => {
                     setStatus("idle");
+                    setNameInput("");
+                    setEmailInput("");
                     setPhoneInput("");
                   }}
                   variant="outline"
@@ -181,6 +215,8 @@ export function CareersHero() {
                     <Input
                       id="hero-name"
                       name="name"
+                      value={nameInput}
+                      onChange={handleNameChange}
                       placeholder="Your full name"
                       className={`h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4 ${
                         fieldErrors.name ? "border-destructive focus-visible:ring-destructive" : ""
@@ -200,6 +236,8 @@ export function CareersHero() {
                       id="hero-email"
                       name="email"
                       type="email"
+                      value={emailInput}
+                      onChange={handleEmailChange}
                       placeholder="Your email address"
                       className={`h-13 sm:h-14 rounded-2xl focus-visible:ring-emerald text-base px-4 ${
                         fieldErrors.email ? "border-destructive focus-visible:ring-destructive" : ""
